@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+if (!window.Kolich) {
+  Kolich = {};
+}
+
+Kolich.Mobile = {};
+Kolich.Mobile.init = function(){
+  window.scrollTo(0,1);
+}
+
+if(window.addEventListener){
+  window.addEventListener('load', Kolich.Mobile.init, false);
+}else if(window.attachEvent){
+  window.attachEvent('onload', Kolich.Mobile.init);
+}
