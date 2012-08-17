@@ -1,4 +1,14 @@
 Ppuga::Application.routes.draw do
+  get "revisions/index"
+
+  get "revisions/show"
+
+  get "phrases/create"
+
+  get "phrases/update"
+
+  get "phrases/destroy"
+
   devise_for :authors
 
   root :to => 'pages#home', :as => 'homepage'
