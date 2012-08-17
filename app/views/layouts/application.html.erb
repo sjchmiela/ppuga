@@ -2,21 +2,36 @@
 <html>
 <head>
   <title>Ppuga</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag params[:controller] %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header style="text-align: right;">
-<% if author_signed_in? %>
-Zalogowano jako: <%= current_member.name %>
-<% else %>
-Niezalogowano.
-<% end %>
-</header>
-<% if notice %><p class="notice"><%= notice %></p><% end %>
-<% if alert %>       <p class="alert"><%= alert %></p><% end %>
-<%= yield %>
-
+	<header>
+		<h1>PPuga</h1>
+		<div class="author">
+			<% if author_signed_in? %>
+			Zalogowano jako: <%= current_member.name %>
+			<% else %>
+			Niezalogowano.
+			<% end %>
+		</div>
+			<div class="search">
+		<input type="search" name="search" placeholder="Szukaj..." />
+	</div>
+	</header>
+	<% if notice or alert %>
+	<div class="alerts">
+		<% if notice %><p class="notice"><%= notice %></p><% end %>
+		<% if alert %><p class="alert"><%= alert %></p><% end %>
+	</div>
+	<% end %>
+	<article>
+		<%= yield %>
+	</article>
+	<script type="text/javascript" src="//use.typekit.net/moz0raj.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </body>
 </html>
