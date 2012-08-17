@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PhrasesController < ApplicationController
   expose(:phrase)
   expose(:phrases) {
@@ -13,13 +14,31 @@ class PhrasesController < ApplicationController
   respond_to :html
 
   def create
-  	phrase.save
-  	redirect_to phrase
+  	if phrase.save
+      revision = Revision.from_phrase(phrase)
+      revision.author_id = current_author.id
+      revision.save
+      flash[:notice] = "Dodano frazę."
+    end
+  	respond_with phrase
   end
 
   def update
+    if phrase.save
+      revision = Revision.from_phrase(phrase)
+      revision.author_id = current_author.id
+      revision.save
+      flash[:notice] = "Zaktualizowano frazę."
+    end
+    respond_with phrase
   end
 
   def destroy
+    revision = Revision.from_phrase(phrase)
+    revision.author_id = current_author.id
+    revision.save
+    phrase.destroy
+    flash[:notice] = "Usunięto frazę."
+    redirect_to homepage_path
   end
 end
