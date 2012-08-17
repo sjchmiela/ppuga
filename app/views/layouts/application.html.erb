@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<h1>PPuga</h1>
+		<h1><a href="/">PPuga</a></h1>
 		<div class="author">
 			<% if author_signed_in? %>
 			Zalogowano jako: <%= current_author.name %>
@@ -18,9 +18,11 @@
 			Niezalogowano.
 			<% end %>
 		</div>
-			<div class="search">
-		<input type="search" name="search" placeholder="Szukaj..." />
-	</div>
+		<div class="search">
+			<%= form_tag phrases_path, :method => :get do %>
+				<%= text_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj", :name => :nil %>
+			<% end %>
+		</div>
 	</header>
 	<% if notice or alert %>
 	<div class="alerts">
@@ -28,9 +30,14 @@
 		<% if alert %><p class="alert"><%= alert %></p><% end %>
 	</div>
 	<% end %>
-	<article>
-		<%= yield %>
-	</article>
+	<div class="piece-of-paper">
+		<article>
+			<%= yield %>
+		</article>
+	</div>
+	<footer>
+		<p>Popełnione przez <a href="//rainbow-cafe.eu">Rainbow Cafe</a></p>
+	</footer>
 	<script type="text/javascript" src="//use.typekit.net/moz0raj.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </body>
