@@ -1,16 +1,8 @@
 Ppuga::Application.routes.draw do
-  get "revisions/index"
-
-  get "revisions/show"
-
-  get "phrases/create"
-
-  get "phrases/update"
-
-  get "phrases/destroy"
-
+  resources :phrases do 
+    resources :revisions, :only => [:index, :show]
+  end
   devise_for :authors
-
   root :to => 'pages#home', :as => 'homepage'
 
   # The priority is based upon order of creation:
