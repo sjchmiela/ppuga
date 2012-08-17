@@ -1,4 +1,4 @@
 <header><h1><%= phrase.title %></h1></header>
 <section>
-	<p><strong><%= phrase.title %></strong> &ndash; <%= phrase.description %></p>
+	<%= Redcarpet::Markdown.new(Redcarpet::Render::XHTML,:autolink => true, :space_after_headers => true).render(phrase.description).html_safe %>
 </section>
