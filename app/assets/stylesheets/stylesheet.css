@@ -2,6 +2,8 @@
 ----------------------
 16px @ 1:1.618
 80px @ 1:1.618	
+----------------------
+http://modularscale.com/scale/?px1=16&px2=80&ra1=1.618&ra2=0
 ----------------------*/
 
 body {
@@ -53,7 +55,7 @@ footer p { font-size: 0.618em;}
 
 
 article form {font-size: 0.8421em;}
-.new_phrase { width:100%;}
-.new_phrase input[type=text], .new_phrase textarea { width: 100%; box-sizing: border-box; margin-top: 1em; }
-.new_phrase textarea { height: 5em; margin-bottom: 1em;}
-.new_phrase input[type=submit] { float: right;}
+.form_phrase { width:100%;}
+.form_phrase input[type=text], .form_phrase textarea { width: 100%; box-sizing: border-box; margin-top: 1em; }
+.form_phrase textarea { height: 5em; margin-bottom: 1em;}
+.form_phrase input[type=submit] { float: right;}
