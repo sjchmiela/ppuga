@@ -1,0 +1,38 @@
+/* Modular Scale
+----------------------
+16px @ 1:1.618
+80px @ 1:1.618	
+----------------------*/
+
+body {
+	background: url(./body.jpg) repeat;
+	font-size: 100%;
+	line-height: 1.2em;
+	text-rendering: optimizelegibility;
+}
+
+header {
+	width: 100%;
+	text-align: center;
+	background: url(./retina_wood.png) repeat;
+	overflow: hidden;
+	box-shadow: 0 0 0.236em #333;
+	margin-bottom: 1em;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+	header { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
+}
+
+header h1 {
+	font-size: 5em;
+	line-height: 1.618em;
+	font-weight: 500;
+}
+
+.author { display: none;}
+
+.search { width: 100%; text-align: center; margin-bottom: 0.451em;}
+.search input { width: 75%;}
+
+article { font-size: 1.18em;}
