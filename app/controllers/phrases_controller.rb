@@ -1,4 +1,9 @@
 class PhrasesController < ApplicationController
+  expose(:phrase)
+  expose(:phrases)
+  
+  respond_to :html
+
   def create
   end
 
