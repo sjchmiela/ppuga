@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header style="text-align: right;">
+<% if author_signed_in? %>
+Zalogowano jako: <%= current_member.name %>
+<% else %>
+Niezalogowano.
+<% end %>
+</header>
 <% if notice %><p class="notice"><%= notice %></p><% end %>
 <% if alert %>       <p class="alert"><%= alert %></p><% end %>
 <%= yield %>
