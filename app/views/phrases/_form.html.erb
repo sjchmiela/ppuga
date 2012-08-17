@@ -1,4 +1,4 @@
-<%= form_for phrase do |f| %>
+<%= form_for phrase, :html => {:class =>"form_phrase"} do |f| %>
 	<% if phrase.errors.any? %>
 		<div class="alert">
 			<h2><%= pluralize(phrase.errors.count, "error") %> prohibited this phrase from being saved:</h2>
