@@ -1,5 +1,7 @@
 Ppuga::Application.routes.draw do
-  get "pages/home"
+  devise_for :authors
+
+  root :to => 'pages#home', :as => 'homepage'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
