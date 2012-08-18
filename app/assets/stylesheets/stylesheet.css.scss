@@ -1,7 +1,7 @@
 /* Modular Scale
 ----------------------
 16px @ 1:1.618
-80px @ 1:1.618	
+80px @ 1:1.618  
 ----------------------
 http://modularscale.com/scale/?px1=16&px2=80&ra1=1.618&ra2=0
 ----------------------*/
@@ -35,6 +35,7 @@ body > header h1 {
 }
 
 h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
+h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; } 
 
 .author { display: none;}
 
@@ -44,22 +45,22 @@ h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 
 .search { width: 100%; text-align: center; margin: 0 auto 1em auto;}
 .search input[type=search] { width: 80%;
-    border: 0.066em solid #d1d1d1;
-    font-weight: 700;
-    color: #bebebe;
-    padding: 0.382em 1em;
-    -webkit-border-radius: 1.18em;
-    -moz-border-radius: 1.18em;
-    border-radius: 1.18em;
-    text-shadow: 0 0.146em 0.172em rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
-    -moz-box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
-    box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
-    -webkit-transition: all 0.7s ease 0s;
-    -moz-transition: all 0.7s ease 0s;
-    -o-transition: all 0.7s ease 0s;
-    transition: all 0.7s ease 0s;
-
+	border: 0.066em solid #d1d1d1;
+	font-weight: 700;
+	color: #bebebe;
+	padding: 0.382em 1em 0.382em 1.91em;
+	-webkit-border-radius: 1.18em;
+	-moz-border-radius: 1.18em;
+	border-radius: 1.18em;
+	-webkit-box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
+	-moz-box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
+	box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
+	background-color: #fff;
+	background-image: url(magnifier.png);
+	background-image: url(magnifier.svg);
+	background-repeat: no-repeat;
+	background-size: 1em 1em;
+	background-position: 0.73em 50%;
 
 }
 .search input[type=submit] { display: none;}
