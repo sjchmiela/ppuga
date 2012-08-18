@@ -24,7 +24,7 @@ body > header {
 	margin-bottom: 1em;
 }
 
-body > footer { width: 90%; text-align: center; margin: 1em auto; clear: both;}
+body > footer { width: 90%; text-align: center; padding: 1em; margin: 0 auto; clear: both;}
 
 @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 	body > header { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
