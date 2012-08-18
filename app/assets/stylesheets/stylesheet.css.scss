@@ -88,3 +88,21 @@ article form {font-size: 0.8421em;}
 .form_phrase input[type=submit] { float: right;}
 
 aside { display: none;}
+
+.notice, .alert {
+	width: 50%;
+	box-sizing: border-box;
+	font-weight: 700;
+	padding: 0.382em 1em 0.382em 1.91em;
+	border-radius: 1.18em;
+	box-shadow: 0 0.066em 0.172em #f14e32;
+	background-color: #f14e32;
+	margin: 0 auto;
+	text-align: center;
+	border: 0.236em solid white;
+}
+
+.notice {
+	box-shadow: 0 0.066em 0.172em #87CEFA;
+	background-color: #87CEFA;
+}
