@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817145243) do
+ActiveRecord::Schema.define(:version => 20120818084345) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120817145243) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "slug"
+    t.boolean  "published"
   end
 
   add_index "phrases", ["slug"], :name => "index_phrases_on_slug", :unique => true
