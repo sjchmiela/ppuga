@@ -38,8 +38,32 @@ h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 
 .author { display: none;}
 
+/*
+ * Search form
+ */
+
 .search { width: 100%; text-align: center; margin: 0 auto 1em auto;}
-.search input[type=text] { width: 75%;}
+.search input[type=text] { width: 75%;
+background: url(search-white.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+
+
+}
 .search input[type=submit] { display: none;}
 
 article { font-size: 1.18em; width: 85%; margin: 1em auto;}
