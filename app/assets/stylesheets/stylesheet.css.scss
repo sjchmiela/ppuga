@@ -39,9 +39,36 @@ body > header h1 {
 h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; } 
 
-.asfalt { width: 100%; background: url(./asfalt.png) repeat; height: 0; overflow: hidden; color: white;}
-.toggle { right: 1em; top: 1em; display: block; background: red; position: absolute; width: 2.618em; height: 2.618em;}
-.author {padding: 0.73em;}
+.asfalt { width: 100%; background: url(./asfalt.png) repeat; overflow: hidden; color: white; height: 0; display: none;}
+.toggle { right: 1em; top: 1em; display: block; background: url(./author.svg) no-repeat left top; background-size: 2.618em 2.618em; position: absolute; width: 2.618em; height: 2.618em; display: none;}
+.author, .phrase_toolbar {padding: 0.73em;}
+.author form { display: block; overflow: hidden; width: 19.942em;}
+.author input[type=email], .author input[type=password] {
+	border: 0.066em solid #d1d1d1;
+	color: #555;
+	padding: 0.382em 1em;
+	border-radius: 1.18em;
+	width: 17.942em;
+}
+.edit_phrase:before { content: "✍"; padding-right: 0.618em;}
+.destroy_phrase:before { content: "✗"; padding-right: 0.618em;}
+.phrase_revisions:before { content: "☰"; padding-right: 0.618em;}
+.author input[type=email] {
+	border-radius: 1.18em 1.18em 0 0;
+}
+.author input[type=password]
+{
+	border-radius: 0 0 1.18em 1.18em;
+	margin-bottom: 1em;
+	border-top: 0 solid #fff;
+}
+.author input[type=submit] { clear: left; display: block; float: right;}
+.asfalt a { color: #efefef; text-decoration: none;}
+.asfalt a:hover { text-decoration: underline;}
+.asfalt p { line-height: 1.91em;}
+
+.half-asfalt { width: 49%; height: 13.09em; display: inline-block; float: left;}
+.half-asfalt h1 { font-weight: 500; font-size: 1.618em; line-height: 1.91em; border-bottom: 1px solid white; margin-bottom: .451em;}
 
 /*
  * Search form
@@ -65,6 +92,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	background-position: 0.73em 50%;
 
 }
+
 .search input[type=submit] { display: none;}
 
 article { font-size: 1.18em; width: 85%; margin: 1em auto; }

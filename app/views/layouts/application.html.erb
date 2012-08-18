@@ -11,13 +11,27 @@
 <body>
 	<div class="toggle"></div>
 	<div class="asfalt">
-		<div class="author">
+		<div class="half-asfalt">
+		<div class="phrase_toolbar"><% if defined? phrase and !phrase.id.nil? %>
+			<h1><%= phrase.title %></h1>
+				<p><%= link_to "Wersje frazy", phrase_revisions_path(phrase), :class => "phrase_revisions" %></p>
+				<% if author_signed_in? %><p><%= link_to "Edytuj frazę", edit_phrase_path(phrase), :class => "edit_phrase" %></p>
+				<p><%= link_to "Usuń frazę", phrase, :confirm => "Ale na pewno?", :method => :delete, :class => "destroy_phrase" %></p>
+				<% end %>
+			<% end %></div>
+	</div>
+		<div class="half-asfalt"><div class="author">
+			<h1>Logowanie</h1>
 			<% if author_signed_in? %>
-			Witaj, <%= current_author.email %>! <%= link_to "Wyloguj się!", destroy_author_session_path, :method => :delete %>
+			<p>Witaj, <%= current_author.email %>!</p><p>&nbsp;</p><p><%= link_to "☛ Wyloguj się!", destroy_author_session_path, :method => :delete %></p>
 			<% else %>
-			Niezalogowano. <%= link_to "Zaloguj się!", new_author_session_path %> <%= link_to "Zarejestruj się!", new_author_registration_path %>
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.email_field :email, :placeholder => "Adres e-mail" %><%= f.password_field :password, :placeholder => "Hasło" %> <%= f.submit "Loguj!" %><%= link_to "Nie mam konta. ☹", new_author_registration_path %>
+
+<% end %>
 			<% end %>
 		</div>
+	</div>
 	</div>
 	<header>
 		<div class="wrapper">

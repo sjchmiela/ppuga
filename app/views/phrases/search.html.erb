@@ -3,5 +3,5 @@
 <%= link_to (raw ("<div class='search-result'><h3>#{p.title}</h3><p class='search-description'>#{shorten_description(p)[0..100]}...</div>")), p, :class => 'search-link' %>
 <% end %>
 <% if phrases.empty? %>
-	<p>Brak wyników wyszukiwania.</p>
+<p>Brak wyników wyszukiwania.</p>
 <% end %>

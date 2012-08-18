@@ -43,8 +43,8 @@ $(function() {
 	$(".toggle").on("click", function(){
 		if($(".asfalt").css("height") == '0px')
 		{
-			$(".asfalt").animate({"height": "2.618em"}, 1000);
-			$(".toggle").animate({"top": "3.618em"}, 1000);
+			$(".asfalt").animate({"height": "13.09em"}, 1000);
+			$(".toggle").animate({"top": "14.09em"}, 1000);
 		}
 		else
 		{

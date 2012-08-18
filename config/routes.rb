@@ -6,7 +6,6 @@ Ppuga::Application.routes.draw do
     resources :revisions, :only => [:index, :show]
   end
   devise_for :authors
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

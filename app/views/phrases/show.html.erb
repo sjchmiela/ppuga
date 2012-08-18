@@ -1,4 +1,4 @@
-<header><h1><%= phrase.title %></h1><% if author_signed_in? %><nav><%= link_to "Edytuj", edit_phrase_path(phrase) %> <%= link_to "Usuń", phrase, :method => :delete, :confirm => "Na pewno tego chcesz?" %></nav><% end %></header>
+<header><h1><%= phrase.title %></h1></header>
 <section>
 	<%= sanitize phrase.rendered_description %>
 </section>

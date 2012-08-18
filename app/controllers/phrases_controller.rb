@@ -2,7 +2,7 @@
 class PhrasesController < ApplicationController
 	expose(:phrase)
 	expose(:phrases) {
-		if params[:action] == 'search'
+		if !params[:search].nil?
 				p = Phrase.search {
 					fulltext params[:search] do
 					phrase_fields :title => 5.0
