@@ -1,5 +1,7 @@
-<p>Welcome <%= @resource.email %>!</p>
+<p>Siemano <%= @resource.email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Zanim będziesz mógł korzystać ze wszystkich naszych dóbr musisz potwierdzić, że jesteś gotów na przygodę.</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= link_to 'Jestem gotowy na przygodę!', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+<p><%= link_to 'Nie, poddaję się.', sissy_url %></p>
