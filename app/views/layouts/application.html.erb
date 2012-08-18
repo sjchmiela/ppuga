@@ -10,30 +10,47 @@
 </head>
 <body>
 	<header>
-		<h1><a href="/">PPuga</a></h1>
-		<div class="author">
-			<% if author_signed_in? %>
-			Zalogowano jako: <%= current_author.name %>
-			<% else %>
-			Niezalogowano.
-			<% end %>
-		</div>
-		<div class="search">
-			<%= form_tag phrases_path, :method => :get do %>
-				<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj", :name => :nil %>
-			<% end %>
+		<div class="wrapper">
+			<h1><a href="/">PPuga</a></h1>
+			<div class="author">
+				<% if author_signed_in? %>
+				Zalogowano jako: <%= current_author.name %>
+				<% else %>
+				Niezalogowano.
+				<% end %>
+			</div>
+			<div class="search">
+				<%= form_tag phrases_path, :method => :get do %>
+					<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
+				<% end %>
+			</div>
 		</div>
 	</header>
 	<% if notice or alert %>
 	<div class="alerts">
-		<% if notice %><p class="notice"><%= notice %></p><% end %>
-		<% if alert %><p class="alert"><%= alert %></p><% end %>
+		<div class="wrapper">
+			<% if notice %><p class="notice"><%= notice %></p><% end %>
+			<% if alert %><p class="alert"><%= alert %></p><% end %>
+		</div>
 	</div>
 	<% end %>
-	<div class="piece-of-paper">
-		<article>
-			<%= yield %>
-		</article>
+	<div class="wrapper with_sidebar">
+		<aside>
+			<div class="search">
+				<%= form_tag phrases_path, :method => :get do %>
+					<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
+				<% end %>
+			</div>
+			<div class="search-results">
+				<a href="/phrases/narodowy-bank-polski" class="search-link"><div class='search-result'><h3>Narodowy Bank Polski</h3><p class='search-description'>Polski bank centralny z siedzibą w Warszawie...</div></a>
+				<a href="/phrases/inkaso" class="search-link"><div class='search-result'><h3>Inkaso</h3><p class='search-description'>Warunkowa forma płatności, polegająca na pobraniu przez bank od kupującego na rzecz sprzedającego okr...</div></a>
+			</div>
+		</aside>
+		<div class="piece-of-paper">
+			<article>
+				<%= yield %>
+			</article>
+		</div>
 	</div>
 	<footer>
 		<p>Popełnione przez <a href="//rainbow-cafe.eu">Rainbow Cafe</a></p>
