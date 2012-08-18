@@ -81,13 +81,3 @@
 	}
 	header .search { display: none;}
 }
-
-@media only screen and (min-width: 1200px) {
-	
-	.piece-of-paper {width: 55.445em}
-	.with_sidebar{ width: 75.999em}
-	.piece-of-paper:before { display: none}
-	aside {  width: 20.554em; }
-	aside.search { width: 100%;}
-	
-}
