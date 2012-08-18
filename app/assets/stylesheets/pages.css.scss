@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body > header h1 { line-height: 3em; }
+body > header h1 { line-height: 3em; font-size: 5em;}
 
 article {display: none;}
 
@@ -15,3 +15,5 @@ body {background: url(./retina_wood.png) repeat; }
 }
 
 footer { display: none}
+
+.piece-of-paper { display: none;}
