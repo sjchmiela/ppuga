@@ -1,6 +1,6 @@
 <h1>Wyniki wyszukiwania „<%= params[:search] %>”</h1>
 <% phrases.each do |p| %>
-<%= link_to (raw ("<div class='search-result'><h3>#{p.title}</h3><p class='search-description'>#{p.short_description}...</div>")), p, :class => 'search-link' %>
+<%= link_to (raw ("<div class='search-result'><h3>#{p.title}</h3><p class='search-description'>#{shorten_description(p)[0..100]}...</div>")), p, :class => 'search-link' %>
 <% end %>
 <% if phrases.empty? %>
 	<p>Brak wyników wyszukiwania.</p>

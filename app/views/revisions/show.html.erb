@@ -1,2 +1,4 @@
-<h1>Revisions#show</h1>
-<p>Find me in app/views/revisions/show.html.erb</p>
+<header><h1><%= revision.title %></h1></header>
+<section>
+	<%= sanitize revision.rendered_description %>
+</section>
