@@ -9,16 +9,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="toggle"></div>
+	<div class="asfalt">
+		<div class="author">
+			<% if author_signed_in? %>
+			Witaj, <%= current_author.email %>! <%= link_to "Wyloguj się!", destroy_author_session_path, :method => :delete %>
+			<% else %>
+			Niezalogowano. <%= link_to "Zaloguj się!", new_author_session_path %> <%= link_to "Zarejestruj się!", new_author_registration_path %>
+			<% end %>
+		</div>
+	</div>
 	<header>
 		<div class="wrapper">
 			<h1><a href="/">PPuga</a></h1>
-			<div class="author">
-				<% if author_signed_in? %>
-				Zalogowano jako: <%= current_author.name %>
-				<% else %>
-				Niezalogowano.
-				<% end %>
-			</div>
 			<div class="search">
 				<%= form_tag search_phrase_path, :method => :get do %>
 					<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>

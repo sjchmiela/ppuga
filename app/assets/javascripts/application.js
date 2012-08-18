@@ -39,5 +39,17 @@ $(function() {
 				$("aside .search-result").css("border-left-color", "#0388A6");
 				setTimeout(function(){$("aside .search-result").css("border-left-color", "#eee");}, 1000);
 		});
-	})
+	});
+	$(".toggle").on("click", function(){
+		if($(".asfalt").css("height") == '0px')
+		{
+			$(".asfalt").animate({"height": "2.618em"}, 1000);
+			$(".toggle").animate({"top": "3.618em"}, 1000);
+		}
+		else
+		{
+			$(".asfalt").animate({"height": "0"}, 1000);
+			$(".toggle").animate({"top": "1em"}, 1000);
+		}
+	});
 });

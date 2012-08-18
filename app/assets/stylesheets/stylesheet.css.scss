@@ -39,7 +39,9 @@ body > header h1 {
 h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; } 
 
-.author { display: none;}
+.asfalt { width: 100%; background: url(./asfalt.png) repeat; height: 0; overflow: hidden; color: white;}
+.toggle { right: 1em; top: 1em; display: block; background: red; position: absolute; width: 2.618em; height: 2.618em;}
+.author {padding: 0.73em;}
 
 /*
  * Search form
