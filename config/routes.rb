@@ -1,9 +1,10 @@
 Ppuga::Application.routes.draw do
+  match 'phrases/search' => 'phrases#search', :as => 'search_phrase', :via => :get
+  root :to => 'pages#home', :as => 'homepage', :via => :get
   resources :phrases do 
     resources :revisions, :only => [:index, :show]
   end
   devise_for :authors
-  root :to => 'pages#home', :as => 'homepage'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -33,9 +33,11 @@ $(function() {
 	$("aside input").on("keyup", function() {
 		var query = $("aside input").val();
 		if(query == '') { $(".search-results").html(''); return;}
-		$.ajax({ url: "/phrases?naked=1&search="+query, cache: false }).done(
+		$.ajax({ url: "/phrases/search?naked=1&search="+query, cache: false }).done(
 			function( result ) {
 				$(".search-results").html(result);
+				$("aside .search-result").css("border-left-color", "#0388A6");
+				setTimeout(function(){$("aside .search-result").css("border-left-color", "#eee");}, 1000);
 		});
 	})
 });
