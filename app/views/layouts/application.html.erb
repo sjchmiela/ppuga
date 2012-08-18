@@ -37,13 +37,10 @@
 	<div class="wrapper with_sidebar">
 		<aside>
 			<div class="search">
-				<%= form_tag phrases_path, :method => :get do %>
-					<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
-				<% end %>
+					<%= search_field_tag :search, params[:search],:autocomplete => :off, :placeholder => "Szukaj..." %>
 			</div>
 			<div class="search-results">
-				<a href="/phrases/narodowy-bank-polski" class="search-link"><div class='search-result'><h3>Narodowy Bank Polski</h3><p class='search-description'>Polski bank centralny z siedzibą w Warszawie...</div></a>
-				<a href="/phrases/inkaso" class="search-link"><div class='search-result'><h3>Inkaso</h3><p class='search-description'>Warunkowa forma płatności, polegająca na pobraniu przez bank od kupującego na rzecz sprzedającego okr...</div></a>
+				
 			</div>
 		</aside>
 		<div class="piece-of-paper">

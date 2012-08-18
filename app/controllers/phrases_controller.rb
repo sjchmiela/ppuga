@@ -15,6 +15,12 @@ class PhrasesController < ApplicationController
 
   respond_to :html
 
+  def index
+    if params[:naked] == '1'
+      render :layout => false
+    end
+  end
+
   def create
     if !author_signed_in?
       redirect_to new_author_session_path

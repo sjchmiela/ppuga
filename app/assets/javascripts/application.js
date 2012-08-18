@@ -28,3 +28,14 @@ if(window.addEventListener){
 }else if(window.attachEvent){
   window.attachEvent('onload', Kolich.Mobile.init);
 }
+
+$(function() {
+	$("aside input").on("keyup", function() {
+		var query = $("aside input").val();
+		if(query == '') { $(".search-results").html(''); return;}
+		$.ajax({ url: "/phrases?naked=1&search="+query, cache: false }).done(
+			function( result ) {
+				$(".search-results").html(result);
+		});
+	})
+});
