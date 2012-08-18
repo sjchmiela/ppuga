@@ -20,7 +20,7 @@
 		</div>
 		<div class="search">
 			<%= form_tag phrases_path, :method => :get do %>
-				<%= text_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj", :name => :nil %>
+				<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj", :name => :nil %>
 			<% end %>
 		</div>
 	</header>
