@@ -26,43 +26,31 @@ class PhrasesController < ApplicationController
 	end
 
 	def create
-		if !author_signed_in?
-			redirect_to new_author_session_path
-		else
-			if phrase.save
-				revision = Revision.from_phrase(phrase)
-				revision.author_id = current_author.id
-				revision.save
-				flash[:notice] = "Dodano frazę."
-			end
-			respond_with phrase
-		end
-	end
-
-	def update
-		if !author_signed_in?
-			redirect_to new_author_session_path
-		else
-			if phrase.save
-				revision = Revision.from_phrase(phrase)
-				revision.author_id = current_author.id
-				revision.save
-				flash[:notice] = "Zaktualizowano frazę."
-			end
-			respond_with phrase
-		end
-	end
-
-	def destroy
-		if !author_signed_in?
-			redirect_to new_author_session_path
-		else
+		if phrase.save
 			revision = Revision.from_phrase(phrase)
 			revision.author_id = current_author.id
 			revision.save
-			phrase.destroy
-			flash[:notice] = "Usunięto frazę."
-			redirect_to homepage_path
+			flash[:notice] = "Dodano frazę."
 		end
+		respond_with phrase
+	end
+
+	def update
+		if phrase.save
+			revision = Revision.from_phrase(phrase)
+			revision.author_id = current_author.id
+			revision.save
+			flash[:notice] = "Zaktualizowano frazę."
+		end
+		respond_with phrase
+	end
+
+	def destroy
+		revision = Revision.from_phrase(phrase)
+		revision.author_id = current_author.id
+		revision.save
+		phrase.destroy
+		flash[:notice] = "Usunięto frazę."
+		redirect_to homepage_path
 	end
 end
