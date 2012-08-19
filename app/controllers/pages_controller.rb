@@ -1,5 +1,6 @@
 # encoding: utf-8
 class PagesController < ApplicationController
+  respond_to :html
   def sissy
   	responds = [
   		"Szkoda, ale było miło.",
