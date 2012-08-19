@@ -1,3 +1,4 @@
+<% content_for :title do %>Lista fraz<% end %>
 <h1>Frazy w PPudze</h1>
 <% phrases.each do |p| %>
 <%= link_to (raw ("<div class='search-result'><h3>#{p.title}</h3><p class='search-description'>#{shorten_description(p)[0..100]}...</div>")), p, :class => 'search-link' %>

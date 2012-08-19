@@ -1,3 +1,4 @@
+<% content_for :title do %>Nowe hasło<% end %>
 <h2>Zapomniałeś hasła?</h2>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>

@@ -1,3 +1,4 @@
+<% content_for :title do %>Wyszukiwanie „<%= params[:search] %>”<% end %>
 <h1>Wyniki wyszukiwania „<%= params[:search] %>”</h1>
 <% phrases.each do |p| %>
 <%= link_to (raw ("<div class='search-result'><h3>#{p.title}</h3><p class='search-description'>#{shorten_description(p)[0..100]}...</div>")), p, :class => 'search-link' %>

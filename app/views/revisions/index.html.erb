@@ -1,3 +1,4 @@
+<% content_for :title do %>Wersje frazy „<%= phrase.title %>”<% end %>
 <h1>Wersje frazy „<%= phrase.title %>”</h1>
 <% revisions.each do |r| %>
 <%= link_to (raw ("<div class='search-result'><h3>#{r.title}</h3><p class='search-details'>#{r.created_at.strftime('dnia %d-%m-%Y o godzinie %H:%M')} przez #{r.author.email}</p><p class='search-description'>#{shorten_description(r)[0..100]}...</div>")), [phrase,r], :class => 'search-link' %>
