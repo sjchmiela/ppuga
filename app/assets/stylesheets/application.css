@@ -12,4 +12,5 @@
  *= require normalize
  *= require stylesheet
  *= require higher_resolutions
+ *= require print
  */

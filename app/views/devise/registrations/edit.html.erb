@@ -1,4 +1,4 @@
-<h2>Edycja <%= resource_name.to_s.humanize %></h2>
+<h2>Edycja konta</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -12,14 +12,16 @@
   <div><%= f.label :password_confirmation, "Potwierdzenie nowego hasła" %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <em>(obecne hasełko, upewniamy się, że to Ty)<br />
+  <div><%= f.label :current_password, "Obecne hasło" %> <em>(upewniamy się, że to Ty)<br />
   <%= f.password_field :current_password %></div>
 
   <div><%= f.submit "Aktualizuj" %></div>
 <% end %>
 
+<hr />
+
 <h3>Usuń konto</h3>
 
 <p>Ale... Ale jak to? Nie chcesz być z nami więcej? <%= link_to "Nie jestem zadowolony, usuwam.", registration_path(resource_name), :data => { :confirm => "Ale na pewno? Papuga będzie smutna..." }, :method => :delete %>.</p>
-
+<hr />
 <%= link_to "Powrót", :back %>

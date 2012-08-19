@@ -1,13 +1,13 @@
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 34.268em) {
 	.wrapper { width: 34.268em; margin: 0 auto;}
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 46.971em) {
 	.wrapper { width: 46.971em; margin: 0 auto;}
 }
-@media only screen and (min-width: 1000px) { // Could be 1009, but why?
+@media only screen and (min-width: 59.445em) { // Could be 1009, but why?
 	.toggle { display: block;}
 	.toolbar { display: block;}
-	.with_sidebar{ width: 55.445em; max-width: 55.445em;}
+	.wrapper, .toolbar > .wrapper { width: 55.445em; max-width: 55.445em;}
 	body > header { background: none; box-shadow: 0 0 0 #000; }
 	body > header h1 { font-size: 4.236em; line-height: 1.91em;}
 	article h1 { font-size: 1.618em; margin-top: 0;}
@@ -31,7 +31,6 @@
         7px 7px   0 rgba(0,   0,   0,   0.150), 
         9px 9px   0 rgba(255, 255, 255, 1.0),  
         10px 10px 0 rgba(0,   0,   0,   0.175);
-        max-height: 100vh;
         .search { margin:0.618em 0 1.618em 0;}
         .search-results h1 { display: none;}
 	}
@@ -79,4 +78,19 @@
 		body { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
 	}
 	header .search { display: none;}
+	body > header h1 { line-height: 1.18em;}
+}
+
+
+@media only screen and (min-width: 75.999em) { 
+	body > header h1 { font-size: 6.854em; line-height: 1.18em;}
+	.toolbar > .wrapper, .wrapper { width: 70.823em; max-width: 75.999em;}
+	aside { width: 17.942em; margin-right: 1.91em;}
+	.piece-of-paper { width: 46.971em;}
+}
+
+@media only screen and (min-width: 89.710em) {
+	aside { width: 21.179em; margin-right: 2.618em;}
+	.toolbar > .wrapper, .wrapper { width: 83.242em; max-width: 83.242em}
+	.piece-of-paper { width: 55.445em;}
 }
