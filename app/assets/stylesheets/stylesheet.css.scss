@@ -35,7 +35,7 @@ body > header h1 {
 h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; } 
 
-.denim { width: 100%; background: url(./denim.png) repeat left bottom; overflow: hidden; color: white; height: 14.09em; display: none; position: absolute; top: -14.09em;}
+.toolbar { width: 100%; background: url(./toolbar.png) repeat left bottom;background: url(./toolbar_shadow.png) repeat-x left bottom, url(./toolbar.png) repeat left bottom; overflow: hidden; color: white; height: 14.09em; display: none; position: absolute; top: -14.09em;}
 .toggle { right: 1em; top: 1em; display: block; background: url(./author.png) no-repeat left top; background: url(./author.svg) no-repeat left top; background-size: 2.618em 2.618em; position: absolute; width: 2.618em; height: 2.618em; display: none;}
 .author, .phrase_toolbar {padding: 0.73em;}
 .author form { display: block; overflow: hidden; width: 19.942em;}
@@ -49,7 +49,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 
 @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 	body > header { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
-	.denim { background: url(./denim@2x.png) repeat left bottom; background-size: 135px 135px;}
+	.toolbar { background: url(./toolbar_shadow@2x.png) repeat-x left bottom, url(./toolbar@2x.png) repeat left bottom; background-size: 5px 19px, 135px 135px;}
 }
 
 .edit_phrase:before { content: "✍"; padding-right: 0.618em;}
@@ -66,12 +66,12 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	border-top: 0 solid #fff;
 }
 .author input[type=submit] { clear: left; display: block; float: right;}
-.denim a { color: #efefef; text-decoration: none;}
-.denim a:hover { text-decoration: underline;}
-.denim p { line-height: 1.91em;}
+.toolbar a { color: #efefef; text-decoration: none;}
+.toolbar a:hover { text-decoration: underline;}
+.toolbar p { line-height: 1.91em;}
 
-.half-denim { width: 49%; height: 13.09em; display: inline-block; float: left;}
-.half-denim h1 { font-weight: 500; font-size: 1.618em; line-height: 1.91em; border-bottom: 1px solid white; margin-bottom: .451em; margin-top: 0;}
+.half-toolbar { width: 49%; height: 13.09em; display: inline-block; float: left;}
+.half-toolbar h1 { font-weight: 500; font-size: 1.618em; line-height: 1.91em; border-bottom: 1px solid white; margin-bottom: .451em; margin-top: 0;}
 
 /*
  * Search form
@@ -84,7 +84,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	border: 0.066em solid #d1d1d1;
 	font-weight: 700;
 	color: #bebebe;
-	padding: 0.382em 1em 0.382em 1.91em;
+	padding: 0.382em 1em 0.382em 2em;
 	border-radius: 1.18em;
 	box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
 	background-color: #fff;

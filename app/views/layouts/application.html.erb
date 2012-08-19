@@ -10,8 +10,9 @@
 </head>
 <body>
 	<div class="toggle"></div>
-	<div class="denim">
-		<div class="half-denim">
+	<div class="toolbar">
+		<div class="wrapper">
+		<div class="half-toolbar">
 			<div class="phrase_toolbar">
 				<% if defined? phrase and !phrase.id.nil? %>
 					<h1><%= phrase.title %></h1>
@@ -23,7 +24,7 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="half-denim">
+		<div class="half-toolbar">
 			<div class="author">
 				<h1>Logowanie</h1>
 				<% if author_signed_in? %>
@@ -35,6 +36,7 @@
 				<% end %>
 			</div>
 		</div>
+	</div>
 	</div>
 	<header>
 		<div class="wrapper">

@@ -41,19 +41,19 @@ $(function() {
 		});
 	});
 	$(".toggle").on("click", function(){
-		if($(".denim").css("top") != '0px')
+		if($(".toolbar").css("top") != '0px')
 		{
-			//$(".denim").animate({"height": "14.09em"}, 1000);
-			$(".denim").animate({"top": "0"}, 1000);
+			//$(".toolbar").animate({"height": "14.09em"}, 1000);
+			$(".toolbar").animate({"top": "0"}, 1000);
 			$(".toggle").animate({"top": "15.09em"}, 1000);
 			$("body").animate({"backgroundPositionY": "14.09em"}, 1000);
 			$("body > header").animate({"marginTop": "14.09em"}, 1000);
 		}
 		else
 		{
-			//$(".denim").animate({"height": "0"}, 1000);
+			//$(".toolbar").animate({"height": "0"}, 1000);
 			$(".toggle").animate({"top": "1em"}, 1000);
-			$(".denim").animate({"top": "-14.09em"}, 1000);
+			$(".toolbar").animate({"top": "-14.09em"}, 1000);
 			$("body").animate({"backgroundPositionY": "0"}, 1000);
 			$("body > header").animate({"marginTop": "0"}, 1000);
 		}
