@@ -36,44 +36,42 @@
 			</div>
 		</div>
 	</div>
-	<div class="wood">
-		<header>
-			<div class="wrapper">
-				<h1><a href="/">PPuga</a></h1>
-				<% if notice or alert %>
-					<div class="alerts">
-						<div class="wrapper">
-							<% if notice %><p class="notice"><%= notice %></p><% end %>
-							<% if alert %><p class="alert"><%= alert %></p><% end %>
-						</div>
+	<header>
+		<div class="wrapper">
+			<h1><a href="/">PPuga</a></h1>
+			<% if notice or alert %>
+				<div class="alerts">
+					<div class="wrapper">
+						<% if notice %><p class="notice"><%= notice %></p><% end %>
+						<% if alert %><p class="alert"><%= alert %></p><% end %>
 					</div>
+				</div>
+			<% end %>
+			<div class="search">
+				<%= form_tag search_phrase_path, :method => :get do %>
+					<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
 				<% end %>
-				<div class="search">
-					<%= form_tag search_phrase_path, :method => :get do %>
-						<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
-					<% end %>
-				</div>
-			</div>
-		</header>
-		<div class="wrapper with_sidebar">
-			<aside>
-				<div class="search">
-					<%= search_field_tag :search, params[:search],:autocomplete => :off, :placeholder => "Szukaj..." %>
-				</div>
-				<div class="search-results">
-					
-				</div>
-			</aside>
-			<div class="piece-of-paper">
-				<article>
-					<%= yield %>
-				</article>
 			</div>
 		</div>
-		<footer>
-			<p>Popełnione przez <a href="//rainbow-cafe.eu">Rainbow Cafe</a></p>
-		</footer>
+	</header>
+	<div class="wrapper with_sidebar">
+		<aside>
+			<div class="search">
+				<%= search_field_tag :search, params[:search],:autocomplete => :off, :placeholder => "Szukaj..." %>
+			</div>
+			<div class="search-results">
+				
+			</div>
+		</aside>
+		<div class="piece-of-paper">
+			<article>
+				<%= yield %>
+			</article>
+		</div>
 	</div>
+	<footer>
+		<p>Popełnione przez <a href="//rainbow-cafe.eu">Rainbow Cafe</a></p>
+	</footer>
 	<script type="text/javascript" src="//use.typekit.net/moz0raj.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </body>
