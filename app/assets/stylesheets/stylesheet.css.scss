@@ -6,7 +6,7 @@
 http://modularscale.com/scale/?px1=16&px2=80&ra1=1.618&ra2=0
 ----------------------*/
 
-.wrapper { width: 100%;}
+.wrapper { width: 100%; max-width: 46.971em;}
 
 body {
 	background: #fff;
@@ -90,7 +90,6 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	background-repeat: no-repeat;
 	background-size: 1em 1em;
 	background-position: 0.73em 50%;
-
 }
 
 .search input[type=submit] { display: none;}
@@ -127,7 +126,7 @@ aside { display: none;}
 	border-radius: 1.18em;
 	box-shadow: 0 0.066em 0.172em #f14e32;
 	background-color: #f14e32;
-	margin: 0 auto;
+	margin: 0 auto 4.236em auto;
 	text-align: center;
 	border: 0.236em solid white;
 }
