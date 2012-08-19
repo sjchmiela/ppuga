@@ -45,11 +45,13 @@ $(function() {
 		{
 			$(".asfalt").animate({"height": "13.09em"}, 1000);
 			$(".toggle").animate({"top": "14.09em"}, 1000);
+                        $("body").animate({"backgroundPositionY": "13.09em"}, 1000);
 		}
 		else
 		{
 			$(".asfalt").animate({"height": "0"}, 1000);
 			$(".toggle").animate({"top": "1em"}, 1000);
+                        $("body").animate({"backgroundPositionY": "0"}, 1000);
 		}
 	});
 });
