@@ -49,7 +49,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 
 @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 	body > header { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
-	.denim { background: url(./denim@2x.png) repeat; background-size: 135px 135px;}
+	.denim { background: url(./denim@2x.png) repeat left bottom; background-size: 135px 135px;}
 }
 
 .edit_phrase:before { content: "✍"; padding-right: 0.618em;}
