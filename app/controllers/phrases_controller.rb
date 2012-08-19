@@ -1,5 +1,6 @@
 # encoding: utf-8
 class PhrasesController < ApplicationController
+	before_filter :authenticate_author!, :except => [:show, :search, :index]
 	expose(:phrase)
 	expose(:phrases) {
 		if !params[:search].nil?
