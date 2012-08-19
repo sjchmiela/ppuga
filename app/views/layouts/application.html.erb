@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div class="toggle"></div>
-	<div class="asfalt">
-		<div class="half-asfalt">
+	<div class="denim">
+		<div class="half-denim">
 			<div class="phrase_toolbar">
 				<% if defined? phrase and !phrase.id.nil? %>
 					<h1><%= phrase.title %></h1>
@@ -23,11 +23,11 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="half-asfalt">
+		<div class="half-denim">
 			<div class="author">
 				<h1>Logowanie</h1>
 				<% if author_signed_in? %>
-					<p>Witaj, <%= current_author.email %>!</p><p>&nbsp;</p><p><%= link_to "☛ Wyloguj się!", destroy_author_session_path, :method => :delete %></p>
+					<p>Witaj, <%= current_author.email %>!</p><p><%= link_to "Dodaj frazę", new_phrase_path, :class => "add_phrase" %></p><p><%= link_to "☛ Wyloguj się!", destroy_author_session_path, :method => :delete %></p>
 				<% else %>
 					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 						<%= f.email_field :email, :placeholder => "Adres e-mail" %><%= f.password_field :password, :placeholder => "Hasło" %> <%= f.submit "Loguj!" %><%= link_to "Nie mam konta. ☹", new_author_registration_path %>

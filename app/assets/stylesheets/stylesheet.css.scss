@@ -26,10 +26,6 @@ body > header {
 
 body > footer { width: 90%; text-align: center; padding: 1em; margin: 0 auto; clear: both;}
 
-@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
-	body > header { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
-}
-
 body > header h1 {
 	font-size: 3.09em;
 	line-height: 1.618em;
@@ -39,7 +35,7 @@ body > header h1 {
 h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; } 
 
-.asfalt { width: 100%; background: url(./asfalt.png) repeat; overflow: hidden; color: white; height: 0; display: none;}
+.denim { width: 100%; background: url(./denim.png) repeat left bottom; overflow: hidden; color: white; height: 0; display: none;}
 .toggle { right: 1em; top: 1em; display: block; background: url(./author.svg) no-repeat left top; background-size: 2.618em 2.618em; position: absolute; width: 2.618em; height: 2.618em; display: none;}
 .author, .phrase_toolbar {padding: 0.73em;}
 .author form { display: block; overflow: hidden; width: 19.942em;}
@@ -50,9 +46,16 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	border-radius: 1.18em;
 	width: 17.942em;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+	body > header { background: url(./retina_wood@2x.png) repeat; background-size: 512px 512px;}
+	.denim { background: url(./denim@2x.png) repeat; background-size: 135px 135px;}
+}
+
 .edit_phrase:before { content: "✍"; padding-right: 0.618em;}
 .destroy_phrase:before { content: "✗"; padding-right: 0.618em;}
 .phrase_revisions:before { content: "☰"; padding-right: 0.618em;}
+.add_phrase:before { content: "+"; padding-right: 0.618em;}
 .author input[type=email] {
 	border-radius: 1.18em 1.18em 0 0;
 }
@@ -63,12 +66,12 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	border-top: 0 solid #fff;
 }
 .author input[type=submit] { clear: left; display: block; float: right;}
-.asfalt a { color: #efefef; text-decoration: none;}
-.asfalt a:hover { text-decoration: underline;}
-.asfalt p { line-height: 1.91em;}
+.denim a { color: #efefef; text-decoration: none;}
+.denim a:hover { text-decoration: underline;}
+.denim p { line-height: 1.91em;}
 
-.half-asfalt { width: 49%; height: 13.09em; display: inline-block; float: left;}
-.half-asfalt h1 { font-weight: 500; font-size: 1.618em; line-height: 1.91em; border-bottom: 1px solid white; margin-bottom: .451em;}
+.half-denim { width: 49%; height: 13.09em; display: inline-block; float: left;}
+.half-denim h1 { font-weight: 500; font-size: 1.618em; line-height: 1.91em; border-bottom: 1px solid white; margin-bottom: .451em; margin-top: 0;}
 
 /*
  * Search form
