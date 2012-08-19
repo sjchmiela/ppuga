@@ -35,7 +35,7 @@ body > header h1 {
 h1 a, h2 a, h3 a { color: inherit; text-decoration: none;}
 h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; } 
 
-.denim { width: 100%; background: url(./denim.png) repeat left bottom; overflow: hidden; color: white; height: 0; display: none;}
+.denim { width: 100%; background: url(./denim.png) repeat left bottom; overflow: hidden; color: white; height: 14.09em; display: none; position: absolute; top: -14.09em;}
 .toggle { right: 1em; top: 1em; display: block; background: url(./author.svg) no-repeat left top; background-size: 2.618em 2.618em; position: absolute; width: 2.618em; height: 2.618em; display: none;}
 .author, .phrase_toolbar {padding: 0.73em;}
 .author form { display: block; overflow: hidden; width: 19.942em;}
