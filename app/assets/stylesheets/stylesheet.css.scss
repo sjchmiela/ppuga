@@ -102,10 +102,8 @@ article img { width: 100%;}
 footer p { font-size: 0.618em; }
 
 .search-link { display: block; color: inherit; text-decoration: none;}
-.search-result { margin: 1em 0; border-left: 0.451em solid #eee; padding-left: 0.451em; -moz-transition: border-left-color 0.5s ease-out;  
-    -o-transition: border-left-color 0.5s ease-out;  
-    -webkit-transition: border-left-color 0.5s ease-out;  
-    transition: border-left-color 0.5s ease-out;  transition-delay: 2s;}
+.search-result { margin: 1em 0; border-left: 0.451em solid #eee; padding-left: 0.451em; -moz-transition: border-left-color 0.5s ease-out; -o-transition: border-left-color 0.5s ease-out; -webkit-transition: border-left-color 0.5s ease-out; transition: border-left-color 0.5s ease-out;  transition-delay: 2s;}
+.search-result:hover { border-left-color: #0388A6 !important;}
 .search-result h3 { font-size: 1.18em; line-height: 1.618em; margin-bottom: 0;}
 .search-result p { margin-top: 0.106em;}
 
