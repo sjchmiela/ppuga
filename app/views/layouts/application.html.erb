@@ -6,6 +6,12 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag params[:controller].split('/')[0] %>
   <%= javascript_include_tag "application" %>
+  <% [16, 24, 32, 48, 64, 120].each do |s| %>
+  	<%= favicon_link_tag image_path("ppuga_#{s}.ico"), :sizes => "#{s} #{s}", :type => nil %>
+  <% end %>
+  <% [57, 114, 72, 144].each do |s| %>
+  	<%= favicon_link_tag image_path("ppuga_#{s}.png"), :rel => 'apple-touch-icon', :sizes => "#{s}x#{s}", :type => 'image/png' %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
