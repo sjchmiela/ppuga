@@ -30,35 +30,19 @@ if(window.addEventListener){
 }
 
 function search() {
-	var query = $("aside input").val();
+	var query = $("aside input[type=search]").val();
 	if(query == '') { $(".search-results").html(''); return;}
+	console.log("/phrases/search?naked=1&search="+query);
 	$.ajax({ url: "/phrases/search?naked=1&search="+query, cache: false }).done(
 		function( result ) {
 			$(".search-results").html(result);
 			$("aside .search-result").css("border-left-color", "#0388A6");
-			setTimeout(function(){$("aside .search-result").css("border-left-color", "#eee");}, 100);
+			setTimeout(function(){$("aside .search-result").css("border-left-color", "#eee");}, 400);
 	});
-}
-
-function repeatS()
-{
-	if($("aside input").is(":focus"))
-	{
-		search();
-		console.log("Puszczono szukanie, za pół sekundy nowe.");
-		setTimeout(repeatS, 1000);
-	}
 }
 
 $(function() {
-	$("aside input").on("focus", function() {
-		console.log("Złapano focus!");
-		repeatS();
-	});
-	$("aside input").on("blur", function() {
-		console.log("Ups, focus zgubiony!");
-		search();
-	});
+	$("aside form").on("submit", function() { search(); return false; });
 	$(".toggle").on("click", function(){
 		if($(".toolbar").css("top") != '0px')
 		{

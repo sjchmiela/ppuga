@@ -65,7 +65,9 @@
 	<div class="wrapper with_sidebar">
 		<aside>
 			<div class="search">
-				<%= search_field_tag :search, params[:search],:autocomplete => :off, :placeholder => "Szukaj..." %>
+				<%= form_tag search_phrase_path, :method => :get do %>
+					<%= search_field_tag :search, params[:search],:autocomplete => :off, :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
+				<% end %>
 			</div>
 			<div class="search-results">
 				
