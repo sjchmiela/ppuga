@@ -1,7 +1,7 @@
 # encoding: utf-8
 class PhrasesController < ApplicationController
 	require 'wikipedia'
-	before_filter :authenticate_author!, :except => [:show, :search, :index]
+	before_filter :authenticate_author!, :except => [:show, :search, :index, :wikishow]
 	expose(:phrase)
 	expose(:phrases) {
 		if !params[:search].nil?

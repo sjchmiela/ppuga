@@ -29,16 +29,35 @@ if(window.addEventListener){
   window.attachEvent('onload', Kolich.Mobile.init);
 }
 
+function search() {
+	var query = $("aside input").val();
+	if(query == '') { $(".search-results").html(''); return;}
+	$.ajax({ url: "/phrases/search?naked=1&search="+query, cache: false }).done(
+		function( result ) {
+			$(".search-results").html(result);
+			$("aside .search-result").css("border-left-color", "#0388A6");
+			setTimeout(function(){$("aside .search-result").css("border-left-color", "#eee");}, 100);
+	});
+}
+
+function repeatS()
+{
+	if($("aside input").is(":focus"))
+	{
+		search();
+		console.log("Puszczono szukanie, za pół sekundy nowe.");
+		setTimeout(repeatS, 1000);
+	}
+}
+
 $(function() {
-	$("aside input").on("keyup", function() {
-		var query = $("aside input").val();
-		if(query == '') { $(".search-results").html(''); return;}
-		$.ajax({ url: "/phrases/search?naked=1&search="+query, cache: false }).done(
-			function( result ) {
-				$(".search-results").html(result);
-				$("aside .search-result").css("border-left-color", "#0388A6");
-				setTimeout(function(){$("aside .search-result").css("border-left-color", "#eee");}, 1000);
-		});
+	$("aside input").on("focus", function() {
+		console.log("Złapano focus!");
+		repeatS();
+	});
+	$("aside input").on("blur", function() {
+		console.log("Ups, focus zgubiony!");
+		search();
 	});
 	$(".toggle").on("click", function(){
 		if($(".toolbar").css("top") != '0px')

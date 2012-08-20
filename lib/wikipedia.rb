@@ -3,7 +3,7 @@ module Wikipedia
 	require 'rexml/document'
 	def Wikipedia.search (search_query, render = 0)
 		url = "http://pl.wikipedia.org/w/api.php?action=opensearch&search=#{search_query}&sections=0&limit=10&format=xml"
-		xml_data = Net::HTTP.get_response(URI.parse(url)).body
+		xml_data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
 		doc = REXML::Document.new(xml_data)
 		titles = []
 		descriptions = []

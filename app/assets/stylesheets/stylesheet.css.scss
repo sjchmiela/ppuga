@@ -102,7 +102,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 article { font-size: 1.18em; width: 85%; margin: 1em auto; }
 article h1 { font-size: 1.18em; line-height: 1.618em; border-bottom: 1px solid #aaa;}
 article p { margin-top: 1em; line-height:1.618em;}
-article img { width: 100%;}
+article img { max-width: 100%;}
 
 footer p { font-size: 0.618em; }
 
