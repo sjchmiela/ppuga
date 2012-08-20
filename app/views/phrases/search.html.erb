@@ -1,8 +1,11 @@
 <% content_for :title do %>Wyszukiwanie „<%= params[:search] %>”<% end %>
 <h1>Wyniki wyszukiwania „<%= params[:search] %>”</h1>
 <% phrases.each do |p| %>
-<%= link_to (raw ("<div class='search-result'><h3>#{p.title}</h3><p class='search-description'>#{shorten_description(p)[0..100]}...</div>")), p, :class => 'search-link' %>
+	<%= search_result p.title, shorten_description(p)[0..100], p %>
 <% end %>
-<% if phrases.empty? %>
-<p>Brak wyników wyszukiwania.</p>
+<% wikiphrases.each do |title, desc| %>
+	<%= search_result title, desc[0..100], show_phrase_from_wikipedia_path(title.gsub(' ', '_')) %>
+<% end %>
+<% if phrases.empty? and wikiphrases.empty? %>
+	<p>Brak wyników wyszukiwania.</p>
 <% end %>

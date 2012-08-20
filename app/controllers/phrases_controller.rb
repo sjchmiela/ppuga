@@ -1,5 +1,6 @@
 # encoding: utf-8
 class PhrasesController < ApplicationController
+	require 'wikipedia'
 	before_filter :authenticate_author!, :except => [:show, :search, :index]
 	expose(:phrase)
 	expose(:phrases) {
@@ -16,6 +17,12 @@ class PhrasesController < ApplicationController
 		else
 			Phrase.order(:title)
 		end
+	}
+	expose(:wikiphrases) {
+		Wikipedia.search(params[:search])
+	}
+	expose(:wikiphrase) {
+		Wikipedia.show(params[:title])
 	}
 
 	respond_to :html
@@ -52,5 +59,8 @@ class PhrasesController < ApplicationController
 		phrase.destroy
 		flash[:notice] = "Usunięto frazę."
 		redirect_to homepage_path
+	end
+
+	def wikishow
 	end
 end

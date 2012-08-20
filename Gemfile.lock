@@ -49,6 +49,7 @@ GEM
       multi_json (~> 1.0)
     friendly_id (4.0.8)
     hike (1.2.1)
+    htmlentities (4.3.1)
     i18n (0.6.0)
     journey (1.0.4)
     jquery-rails (2.1.0)
@@ -134,6 +135,7 @@ DEPENDENCIES
   decent_exposure
   devise
   friendly_id
+  htmlentities
   jquery-rails
   mysql2
   rails (= 3.2.8)
