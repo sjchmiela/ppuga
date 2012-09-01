@@ -28,9 +28,6 @@ gem 'decent_exposure'
 
 gem 'friendly_id'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
-
 gem 'redcarpet'
 
 gem 'htmlentities'
