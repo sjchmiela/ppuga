@@ -8,9 +8,4 @@ class Phrase < ActiveRecord::Base
   def rendered_description
     return Redcarpet::Markdown.new(Redcarpet::Render::XHTML,:autolink => true, :space_after_headers => true).render(self.description).html_safe
   end
-  searchable do 
-    boolean :published
-  	text :title, :boost => 5
-  	text :description
-  end
 end
