@@ -4,7 +4,6 @@
   <title><%= yield :title %> - PPuga - przedsiębiorczy słownik</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag params[:controller].split('/')[0] %>
   <%= javascript_include_tag "application" %>
   <% [16, 24, 32, 48, 64, 120].each do |s| %>
   	<%= favicon_link_tag image_path("ppuga_#{s}.ico"), :sizes => "#{s} #{s}", :type => nil %>
@@ -14,7 +13,7 @@
   <% end %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller].split('/')[0] %>">
 	<div class="toggle"></div>
 	<div class="toolbar">
 		<div class="wrapper">

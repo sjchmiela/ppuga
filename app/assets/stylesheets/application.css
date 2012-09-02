@@ -13,4 +13,6 @@
  *= require stylesheet
  *= require higher_resolutions
  *= require print
+ *= require devise
+ *= require pages
  */
