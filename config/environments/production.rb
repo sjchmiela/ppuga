@@ -1,6 +1,6 @@
 Ppuga::Application.configure do
   # Setting for Devise
-  config.action_mailer.default_url_options = { :host => 'ppuga.eu01.aws.af.cm' }
+  config.action_mailer.default_url_options = { :host => 'ppuga.v-lo.krakow.pl' }
 
   # Settings specified here will take precedence over those in config/application.rb
 

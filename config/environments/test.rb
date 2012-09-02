@@ -1,6 +1,6 @@
 Ppuga::Application.configure do
   # Setting for Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'users.v-lo.krakow.pl:3000' }
 
   # Settings specified here will take precedence over those in config/application.rb
 
