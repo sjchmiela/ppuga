@@ -31,7 +31,8 @@
         7px 7px   0 rgba(0,   0,   0,   0.150), 
         9px 9px   0 rgba(255, 255, 255, 1.0),  
         10px 10px 0 rgba(0,   0,   0,   0.175);
-        .search { margin:0.618em 0 1.618em 0;}
+        .search { margin:0.618em 0 0.618em 0;}
+        .search-results a:first-child { margin-top: 1em}
         .search-results h1 { display: none;}
 	}
 	.piece-of-paper {

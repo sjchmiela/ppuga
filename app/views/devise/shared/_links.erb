@@ -6,15 +6,15 @@
   <p><%= link_to "Zarejestrujmy się", new_registration_path(resource_name) %></p>
 <% end -%>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && false %>
   <p><%= link_to "Zapomniałem hasła...", new_password_path(resource_name) %></p>
 <% end -%>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' && false %>
   <p><%= link_to "Nie dostałem potwierdzenia rejestracji!", new_confirmation_path(resource_name) %></p>
 <% end -%>
 
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' && false %>
   <p><%= link_to "Nie dostałem odblokowującej konto wiadomości!", new_unlock_path(resource_name) %></p>
 <% end -%>
 
