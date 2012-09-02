@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120818084345) do
+ActiveRecord::Schema.define(:version => 20120902094753) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(:version => 20120818084345) do
   end
 
   add_index "phrases", ["slug"], :name => "index_phrases_on_slug", :unique => true
+  add_index "phrases", ["title", "description"], :name => "title"
+  add_index "phrases", ["title", "description"], :name => "title_2"
+  add_index "phrases", ["title", "description"], :name => "title_3"
 
   create_table "revisions", :force => true do |t|
     t.integer  "phrase_id"
@@ -53,5 +56,7 @@ ActiveRecord::Schema.define(:version => 20120818084345) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "revisions", ["title", "description"], :name => "title"
 
 end
