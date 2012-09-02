@@ -18,3 +18,7 @@
 
 # Ignore solr files
 /solr
+
+# Ignore Sublime files
+
+*.sublime-*
