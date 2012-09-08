@@ -29,11 +29,12 @@ module Wikipedia
 	end
 	def Wikipedia.show(title)
 		url = "http://pl.wikipedia.org/w/api.php?action=mobileview&page=#{title}&sections=0&format=xml"
+		normal_url = "http://pl.wikipedia.org/wiki/#{title}"
 		xml_data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
 		doc = REXML::Document.new(xml_data)
 		# title = doc.elements["api/mobileview"].attributes["normalizedtitle"]
 		title.gsub!('_', ' ')
 		content = doc.elements["api/mobileview/sections/section"].text
-		return [title, content]
+		return [title, content, normal_url]
 	end
 end

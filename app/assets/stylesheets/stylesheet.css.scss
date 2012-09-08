@@ -8,7 +8,7 @@ http://modularscale.com/scale/?px1=16&px2=80&ra1=1.618&ra2=0
 
 .wrapper { width: 100%; max-width: 46.971em;}
 
-.noprint, .ambox, .infobox, .reference, .image, .thumb { display: none}
+.noprint, .ambox, .infobox, .reference, .image, .thumb, .metadata { display: none}
 .disambig { display: block; background: #e0e0e0; box-sizing: border-box; padding: 1em;}
 
 body {
@@ -102,7 +102,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 
 article { font-size: 1.18em; width: 85%; margin: 1em auto; }
 article h1 { font-size: 1.18em; line-height: 1.618em; border-bottom: 1px solid #aaa;}
-article p { margin-top: 1em; line-height:1.618em;}
+article p, article li, article .disambig, article dl { margin-top: 1em; line-height:1.618em;}
 article img { max-width: 100%;}
 
 footer p { font-size: 0.618em; }
@@ -143,15 +143,18 @@ aside { display: none;}
 }
 
 
-/** TRYOUT **/
 
-/*body > header h1 {
-	color: #a08660;
-    opacity: 0.3;
-	text-shadow: 0 2px 0 #fff, 0 -2px 0 #000;
-}*/
-
-article a { }
+article a { color: #0388A6; text-decoration: none; -moz-transition: border 0.5s ease-out; -o-transition: border 0.5s ease-out; -webkit-transition: border 0.5s ease-out; transition: border 0.5s ease-out; border-bottom: 0 solid #fff;}
+article a:hover { border-bottom: 1px solid #0388A6;}
+header a:hover, article a.search-link { border-bottom: 0 solid #fff}
 
 .half-toolbar { overflow: hidden;}
 .half-toolbar h1 { white-space: nowrap; text-overflow: ellipsis;}
+
+figure.wikipedia { width: 4.01em; height: 0.5806em; background-size: 4.01em 0.5806em; background: url(wikipedia-text.png) no-repeat left top; display: inline-block;}
+figure.wikipedia a { width: 100%; height: 100%; display: block;}
+figure.wikipedia-letter { width: 0.847em; height: 0.529em; background-size: 0.847em 0.529em; background: url(wikipedia-letter.png) no-repeat left top; display: inline-block; } 
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+	figure.wikipedia { background-image: url(wikipedia-text@2x.png);}
+	figure.wikipedia-letter { background-image: url(wikipedia-letter@2x.png);}
+}
