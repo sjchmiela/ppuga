@@ -2,6 +2,7 @@
 class PhrasesController < ApplicationController
 	require 'wikipedia'
 	before_filter :authenticate_author!, :except => [:show, :search, :index, :wikishow]
+	before_filter :authenticate_admin, :only => [:unpublished, :unupdated, :publish]
 	expose(:phrase)
 	expose(:phrases) {
 		if !params[:search].nil?
@@ -9,6 +10,12 @@ class PhrasesController < ApplicationController
 		else
 			Phrase.order(:title)
 		end
+	}
+	expose(:unpublished_phrases) {
+		Phrase.where('published=0')
+	}
+	expose(:unupdated_phrases) {
+		Revision.find_by_sql("select revisions.created_at, authors.email, revisions.title, revisions.description from revisions left outer join authors on authors.id=revisions.author_id left outer join phrases on revisions.phrase_id = phrases.id where phrases.updated_at < revisions.created_at;")
 	}
 	expose(:wikiphrases) {
 		Wikipedia.search(params[:search])
@@ -23,6 +30,15 @@ class PhrasesController < ApplicationController
 			render :layout => false
 		end
 	end
+
+	def publish
+		phrase.published = 1
+		if phrase.save
+			flash[:notice] = "Opublikowano frazę."
+		end
+		redirect_to phrase
+	end
+
 
 	def create
 		if current_author.can_publish?
@@ -72,6 +88,15 @@ class PhrasesController < ApplicationController
 		else
 			flash[:notice] = "Nie masz uprawnień do usuwania fraz. Przykro nam. (Tak serio to nie, ale trudno.)"
 			redirect_to phrase
+		end
+	end
+	
+	private
+
+	def authenticate_admin
+		if !current_author.can_publish?
+			flash[:notice] = "Ajajajaj, nieładnie. Tam nie wejdziesz, słoneczko."
+			redirect_to homepage_path
 		end
 	end
 end

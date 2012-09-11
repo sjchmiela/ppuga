@@ -1,5 +1,8 @@
 Ppuga::Application.routes.draw do
   match 'phrases/search' => 'phrases#search', :as => 'search_phrase', :via => :get
+  match 'phrases/:id/publish' => 'phrases#publish', :as => 'publish_phrase', :via => :get
+  match 'phrases/unpublished' => 'phrases#unpublished', :as => 'unpublished_phrases', :via => :get
+  match 'phrases/unupdated' => 'phrases#unupdated', :as => 'unupdated_phrases', :via => :get
   match 'sissy' => 'pages#sissy', :as => 'sissy', :via => :get
   match 'phrases/wikipedia/:title' => 'phrases#wikishow', :as => 'show_phrase_from_wikipedia', :via => :get
   root :to => 'pages#home', :as => 'homepage', :via => :get
