@@ -5,7 +5,7 @@ class PhrasesController < ApplicationController
 	expose(:phrase)
 	expose(:phrases) {
 		if !params[:search].nil?
-			p = Phrase.find_by_sql ["SELECT * FROM `phrases` WHERE MATCH (phrases.title, phrases.description) AGAINST (?);", params[:search]]
+			p = Phrase.find_by_sql ["SELECT * FROM `phrases` WHERE MATCH (phrases.title, phrases.description) AGAINST (?) AND published = 1;", params[:search]]
 		else
 			Phrase.order(:title)
 		end
@@ -25,34 +25,53 @@ class PhrasesController < ApplicationController
 	end
 
 	def create
-		if phrase.save
-			revision = Revision.from_phrase(phrase)
-			revision.author_id = current_author.id
-			revision.save
-			flash[:notice] = "Dodano frazę."
+		if current_author.can_publish?
+			if phrase.save
+				revision = Revision.from_phrase(phrase)
+				revision.author_id = current_author.id
+				revision.save
+				flash[:notice] = "Dodano frazę."
+			end
+		else
+			phrase.published = false
+			if phrase.save
+				revision = Revision.from_phrase(phrase)
+				revision.author_id = current_author.id
+				revision.save
+				flash[:notice] = "Dodano nową wersję frazy do akceptacji przez moderatorów."
+			end
 		end
 		respond_with phrase
 	end
 
 	def update
-		if phrase.save
+		if current_author.can_publish?
+			if phrase.save
+				revision = Revision.from_phrase(phrase)
+				revision.author_id = current_author.id
+				revision.save
+				flash[:notice] = "Zaktualizowano frazę."
+			end
+		else
 			revision = Revision.from_phrase(phrase)
 			revision.author_id = current_author.id
 			revision.save
-			flash[:notice] = "Zaktualizowano frazę."
+			flash[:notice] = "Dodano wersję frazy do akceptacji przez moderatorów."
 		end
 		respond_with phrase
 	end
 
 	def destroy
-		revision = Revision.from_phrase(phrase)
-		revision.author_id = current_author.id
-		revision.save
-		phrase.destroy
-		flash[:notice] = "Usunięto frazę."
-		redirect_to homepage_path
-	end
-
-	def wikishow
+		if current_author.can_publish?
+			revision = Revision.from_phrase(phrase)
+			revision.author_id = current_author.id
+			revision.save
+			phrase.destroy
+			flash[:notice] = "Usunięto frazę."
+			redirect_to homepage_path
+		else
+			flash[:notice] = "Nie masz uprawnień do usuwania fraz. Przykro nam. (Tak serio to nie, ale trudno.)"
+			redirect_to phrase
+		end
 	end
 end
