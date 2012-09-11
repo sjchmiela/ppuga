@@ -8,4 +8,5 @@
 <% end %>
 <% if phrases.empty? and wikiphrases.empty? %>
 	<p>Brak wyników wyszukiwania.</p>
+	<p>Może interesuje Cię <%= link_to 'lista fraz', phrases_path %> w naszym słowniku?</p>
 <% end %>
