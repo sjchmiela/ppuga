@@ -1,0 +1,10 @@
+<% content_for :title do %>Niezaktualizowane artykuły<% end %>
+<h1>Niezaktualizowane artykuły</h1>
+<% unupdated_revisions.each do |r| %>
+	<%= link_to (raw ("<div class='search-result'><h3>#{r.title}</h3><p class='search-details'>#{r.created_at.strftime('dnia %d-%m-%Y o godzinie %H:%M')} przez #{r.email}</p><p class='search-description'>#{shorten_description(r)[0..100]}...</div>")), phrase_revision_path(r.phrase, r), :class => 'search-link' %>
+	<%= link_to "Zaktualizuj artykuł", phrase_revision_change_path(r.phrase, r) %>
+	<%= link_to "Olej wersję",phrase_revision_dismiss_path(r.phrase, r) %>
+<% end %>
+<% if unupdated_revisions.empty? %>
+	<p>Brak niezaktualizowanych fraz!</p>
+<% end %>

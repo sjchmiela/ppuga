@@ -2,8 +2,8 @@
 <h1>Nieopublikowane artykuły</h1>
 <% unpublished_phrases.each do |p| %>
 	<%= search_result p.title, shorten_description(p)[0..200], p %>
-	<%= link_to 'Opublikuj artykuł', publish_phrase(p)%>
-	<%= link_to 'Usuń artykuł', destroy_phrase(p) %>
+	<%= link_to 'Opublikuj artykuł', publish_phrase_path(p)%>
+	<%= link_to "Olej artykuł", p, :confirm => "Ale na pewno?", :method => :delete %>
 <% end %>
 <% if unpublished_phrases.empty? %>
 	<p>Brak nieopublikowanych fraz!</p>

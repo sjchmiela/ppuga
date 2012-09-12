@@ -8,4 +8,7 @@ class Phrase < ActiveRecord::Base
   def rendered_description
     return Redcarpet::Markdown.new(Redcarpet::Render::XHTML,:autolink => true, :space_after_headers => true).render(self.description).html_safe
   end
+  def from_revision!(revision)
+  	return (self.title = revision.title and self.description = revision.description)
+  end
 end
