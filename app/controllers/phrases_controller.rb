@@ -15,7 +15,6 @@ class PhrasesController < ApplicationController
 		Phrase.where('published=0')
 	}
 	expose(:unupdated_revisions) {
-		# Revision.find_by_sql("select revisions.created_at, authors.email as author_email, revisions.phrase_id, revisions.title, revisions.description from revisions left outer join authors on authors.id=revisions.author_id left outer join phrases on revisions.phrase_id = phrases.id where phrases.updated_at < revisions.created_at;")
 		Revision.find_by_sql("select authors.email, revisions.*, phrases.slug as slug from revisions left outer join authors on authors.id=revisions.author_id left outer join phrases on revisions.phrase_id = phrases.id where phrases.updated_at < revisions.created_at;")
 	}
 	expose(:wikiphrases) {
