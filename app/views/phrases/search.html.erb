@@ -4,7 +4,7 @@
 	<%= search_result p.title, shorten_description(p)[0..100], p %>
 <% end %>
 <% wikiphrases.each do |title, desc| %>
-	<%= search_result title, desc[0..100], show_phrase_from_wikipedia_path(title.gsub(' ', '_')), true %>
+	<%= search_result title, (desc or "")[0..100], show_phrase_from_wikipedia_path(title.gsub(' ', '_')), true %>
 <% end %>
 <% if phrases.empty? and wikiphrases.empty? %>
 	<p>Brak wyników wyszukiwania.</p>
