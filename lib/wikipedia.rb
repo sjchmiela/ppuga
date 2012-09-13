@@ -15,12 +15,16 @@ module Wikipedia
 		end
 		result = {}
 		titles.each_with_index do |title, i|
-			result[title] = descriptions[i]
+			if title.index('/') == nil
+                          result[title] = descriptions[i]
+                        end
 		end
 		if render === true
 			rendered = ""
 			result.each do |title, desc|
-				rendered += ActionController::Base.helpers.link_to (ActionController::Base.helpers.raw("<div class='search-result'><h3>#{title}</h3><p class='search-description'>#{desc}...</div>")), title, :class => 'search-link'
+                                if title.index('/') == nil
+                                  rendered += ActionController::Base.helpers.link_to (ActionController::Base.helpers.raw("<div class='search-result'><h3>#{title}</h3><p class='search-description'>#{desc}...</div>")), title, :class => 'search-link'
+                                end
 			end
 			return rendered
 		else
