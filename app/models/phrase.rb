@@ -5,9 +5,6 @@ class Phrase < ActiveRecord::Base
   validates_presence_of :title
   extend FriendlyId
   friendly_id :title, use: :slugged
-  def rendered_description
-    return (Redcarpet::Markdown.new(Redcarpet::Render::XHTML,:autolink => true, :space_after_headers => true).render(self.description.gsub(/\#\((.*), ?(.*)\)/, "<a href='/phrases/\\1'>\\2</a>")).html_safe) # Thanks, Dziewon!
-  end
   def from_revision!(revision)
   	return (self.title = revision.title and self.description = revision.description)
   end

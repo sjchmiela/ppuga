@@ -1,5 +1,5 @@
 <% content_for :title do %>Wersja „<%= phrase.title %>”<% end %>
 <header><h1><%= revision.title %></h1></header>
 <section>
-	<%= sanitize revision.rendered_description %>
+	<%= sanitize rendered_description(revision) %>
 </section>
