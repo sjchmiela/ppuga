@@ -2,11 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin box-shadow($var) {
+	-moz-box-shadow: $var;
+	-webkit-box-shadow: $var;
+	box-shadow: $var;
+}
+
+
 body.pages > header h1 { line-height: 1.91em; font-size: 5em;}
 
 .pages article {display: none;}
 
-body.pages > header { background: none; box-shadow: 0 0 0 #000;}
+body.pages > header { background: none; @include box-shadow(0 0 0 #000);}
 
 body.pages {background: url(./retina_wood.png) repeat left top; }
 

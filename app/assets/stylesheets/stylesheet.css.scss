@@ -1,3 +1,24 @@
+@mixin border-radius($dist) {
+  -moz-border-radius: $dist;
+  -ms-border-radius: $dist;
+  -webkit-border-radius: $dist;
+  border-radius: $dist;
+}
+
+@mixin box-shadow($var) {
+	-moz-box-shadow: $var;
+	-webkit-box-shadow: $var;
+	box-shadow: $var;
+}
+
+@mixin box-sizing($var) {
+	-moz-box-sizing: $var;
+	-webkit-box-sizing: $var;
+	box-sizing: $var;
+}
+
+
+
 /* Modular Scale
 ----------------------
 16px @ 1:1.618
@@ -9,7 +30,7 @@ http://modularscale.com/scale/?px1=16&px2=80&ra1=1.618&ra2=0
 .wrapper { width: 100%; max-width: 46.971em;}
 
 .noprint, .ambox, .infobox, .reference, .image, .thumb, .metadata { display: none}
-.disambig { display: block; background: #e0e0e0; box-sizing: border-box; padding: 1em;}
+.disambig { display: block; background: #e0e0e0; @include box-sizing(border-box); padding: 1em;}
 
 body {
 	background: #fff;
@@ -23,7 +44,7 @@ body > header {
 	text-align: center;
 	background: url(./retina_wood.png) repeat;
 	overflow: hidden;
-	box-shadow: 0 0 0.236em #555;
+	@include box-shadow(0 0 0.236em #555);
 	margin-bottom: 1em;
 }
 
@@ -46,7 +67,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 	border: 0.066em solid #d1d1d1;
 	color: #555;
 	padding: 0.382em 1em;
-	border-radius: 1.18em;
+	@include border-radius(1.18em);
 	width: 17.942em;
 }
 
@@ -60,11 +81,11 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 .phrase_revisions:before { content: "☰"; padding-right: 0.618em;}
 .add_phrase:before { content: "+"; padding-right: 0.618em;}
 .author input[type=email] {
-	border-radius: 1.18em 1.18em 0 0;
+	@include border-radius(1.18em 1.18em 0 0);
 }
 .author input[type=password]
 {
-	border-radius: 0 0 1.18em 1.18em;
+	@include border-radius(0 0 1.18em 1.18em);
 	margin-bottom: 1em;
 	border-top: 0 solid #fff;
 }
@@ -83,13 +104,13 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
 .search { width: 100%; text-align: center; margin: 0 auto 3.09em auto;}
 .search input[type=search] {
 	width: 81.4%;
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 	border: 0.066em solid #d1d1d1;
 	font-weight: 700;
 	color: #bebebe;
 	padding: 0.382em 1em 0.382em 2em;
-	border-radius: 1.18em;
-	box-shadow: 0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset;
+	@include border-radius(1.18em);
+	@include box-shadow(0 0.066em 0.172em rgba(0, 0, 0, 0.15) inset);
 	background-color: #fff;
 	background-image: url(magnifier.png);
 	background-image: url(magnifier.svg);
@@ -118,7 +139,7 @@ footer p { font-size: 0.618em; }
 
 article form {font-size: 0.8421em;}
 .form_phrase { width:100%;}
-.form_phrase input[type=text], .form_phrase textarea { width: 100%; box-sizing: border-box; margin-top: 1em; }
+.form_phrase input[type=text], .form_phrase textarea { width: 100%; @include box-sizing(border-box); margin-top: 1em; }
 .form_phrase textarea { height: 11.089em; margin-bottom: 1em;}
 .form_phrase input[type=submit] { float: right;}
 
@@ -126,11 +147,11 @@ aside { display: none;}
 
 .notice, .alert {
 	width: 50%;
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 	font-weight: 700;
 	padding: 0.382em 1em 0.382em 1.91em;
-	border-radius: 1.18em;
-	box-shadow: 0 0.066em 0.172em #f14e32;
+	@include border-radius(1.18em);
+	@include box-shadow(0 0.066em 0.172em #f14e32);
 	background-color: #f14e32;
 	margin: 0 auto 4.236em auto;
 	text-align: center;
@@ -138,7 +159,7 @@ aside { display: none;}
 }
 
 .notice {
-	box-shadow: 0 0.066em 0.172em #87CEFA;
+	@include box-shadow(0 0.066em 0.172em #87CEFA);
 	background-color: #87CEFA;
 }
 
@@ -149,7 +170,7 @@ article a:hover { border-bottom: 1px solid #0388A6;}
 header a:hover, article a.search-link { border-bottom: 0 solid #fff}
 
 .half-toolbar { overflow: hidden;}
-.half-toolbar h1 { white-space: nowrap; text-overflow: ellipsis;}
+.half-toolbar h1 { white-space: nowrap; text-overflow: ellipsis; -ms-text-overflow: ellipsis;}
 
 figure.wikipedia { width: 4.01em; height: 0.5806em; background-size: 4.01em 0.5806em; background: url(wikipedia-text.png) no-repeat left top; display: inline-block;}
 figure.wikipedia a { width: 100%; height: 100%; display: block;}
