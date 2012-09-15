@@ -1,7 +1,10 @@
+require 'net/http'
+require 'rexml/document'
+	
 module Wikipedia
-	require 'net/http'
-	require 'rexml/document'
-	def Wikipedia.search (search_query, render = 0)
+	extend self
+	
+	def search (search_query, render = 0)
 		url = "http://pl.wikipedia.org/w/api.php?action=opensearch&search=#{search_query}&sections=0&limit=5&format=xml"
 		xml_data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
 		doc = REXML::Document.new(xml_data)
@@ -31,7 +34,7 @@ module Wikipedia
 			return result
 		end
 	end
-	def Wikipedia.show(title)
+	def show(title)
 		url = "http://pl.wikipedia.org/w/api.php?action=mobileview&page=#{title}&sections=0&format=xml"
 		normal_url = "http://pl.wikipedia.org/wiki/#{title}"
 		xml_data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
