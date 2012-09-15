@@ -22,3 +22,5 @@
 # Ignore Sublime files
 
 *.sublime-*
+
+/config/newrelic.yml
