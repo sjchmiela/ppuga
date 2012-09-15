@@ -36,7 +36,7 @@ module Wikipedia
 	end
 	def show(title)
 		url = "http://pl.wikipedia.org/w/api.php?action=mobileview&page=#{title}&sections=0&format=xml"
-		normal_url = "http://pl.wikipedia.org/wiki/#{title}"
+		normal_url = "http://pl.wikipedia.org/wiki/#{title.gsub('?','%3F').gsub('&','%26')}"
 		xml_data = Net::HTTP.get_response(URI.parse(URI.encode(url))).body
 		doc = REXML::Document.new(xml_data)
 		# title = doc.elements["api/mobileview"].attributes["normalizedtitle"]
@@ -44,4 +44,5 @@ module Wikipedia
 		content = doc.elements["api/mobileview/sections/section"].text
 		return [title, content, normal_url]
 	end
+
 end
