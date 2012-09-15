@@ -17,6 +17,33 @@
 	box-sizing: $var;
 }
 
+@mixin paper-shadow {
+	-moz-box-shadow:
+        1px 1px   0 rgba(0,   0,   0,   0.100), 
+        3px 3px   0 rgba(255, 255, 255, 1.0), 
+        4px 4px   0 rgba(0,   0,   0,   0.125), 
+        6px 6px   0 rgba(255, 255, 255, 1.0),  
+        7px 7px   0 rgba(0,   0,   0,   0.150), 
+        9px 9px   0 rgba(255, 255, 255, 1.0),  
+        10px 10px 0 rgba(0,   0,   0,   0.175);
+        -webkit-box-shadow:
+        1px 1px   0 rgba(0,   0,   0,   0.100), 
+        3px 3px   0 rgba(255, 255, 255, 1.0), 
+        4px 4px   0 rgba(0,   0,   0,   0.125), 
+        6px 6px   0 rgba(255, 255, 255, 1.0),  
+        7px 7px   0 rgba(0,   0,   0,   0.150), 
+        9px 9px   0 rgba(255, 255, 255, 1.0),  
+        10px 10px 0 rgba(0,   0,   0,   0.175);
+        box-shadow:
+        1px 1px   0 rgba(0,   0,   0,   0.100), 
+        3px 3px   0 rgba(255, 255, 255, 1.0), 
+        4px 4px   0 rgba(0,   0,   0,   0.125), 
+        6px 6px   0 rgba(255, 255, 255, 1.0),  
+        7px 7px   0 rgba(0,   0,   0,   0.150), 
+        9px 9px   0 rgba(255, 255, 255, 1.0),  
+        10px 10px 0 rgba(0,   0,   0,   0.175);
+}
+
 @media only screen and (min-width: 34.268em) {
 	.wrapper { width: 34.268em; margin: 0 auto;}
 }
@@ -42,14 +69,7 @@
 		padding: 1em;
 		width: 15.559em;
 		margin-right: 1.618em;
-		 @include box-shadow( 
-        1px 1px   0 rgba(0,   0,   0,   0.100), 
-        3px 3px   0 rgba(255, 255, 255, 1.0), 
-        4px 4px   0 rgba(0,   0,   0,   0.125), 
-        6px 6px   0 rgba(255, 255, 255, 1.0),  
-        7px 7px   0 rgba(0,   0,   0,   0.150), 
-        9px 9px   0 rgba(255, 255, 255, 1.0),  
-        10px 10px 0 rgba(0,   0,   0,   0.175));
+		@include paper-shadow;
         .search { margin:0.618em 0 0.618em 0;}
         .search-results a:first-child { margin-top: 1em}
         .search-results h1 { display: none;}
