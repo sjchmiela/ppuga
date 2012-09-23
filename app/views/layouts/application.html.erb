@@ -13,7 +13,7 @@
   <% end %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= params[:controller].split('/')[0] %>">
+<body class="<%= (params[:controller].split('/')[0] == 'pages') ? '' : params[:controller].split('/')[0] %> <%= yield :body_class %>">
 	<div class="toggle"></div>
 	<div class="toolbar">
 		<div class="wrapper">

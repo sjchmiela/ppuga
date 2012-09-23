@@ -1,1 +1,6 @@
 <% content_for :title do %>Strona główna<% end %>
+<% content_for :body_class do %>pages<% end %>
+
+<div class="noprint">
+	<%= link_to "Lista haseł w słowniku", phrases_path %>
+</div>
