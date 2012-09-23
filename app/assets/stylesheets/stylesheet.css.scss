@@ -171,17 +171,17 @@ aside { display: none;}
 .half-toolbar { overflow: hidden;}
 .half-toolbar h1 { white-space: nowrap; text-overflow: ellipsis; -ms-text-overflow: ellipsis;}
 
-figure.wikipedia { width: 123px; height: 18px; background-size: 123px 18px; background: url(wikipedia-article.png) no-repeat left top; display: inline-block;}
-figure.wikipedia a { width: 100%; height: 100%; display: block;}
+figure.wikipedia-article { width: 123px; height: 18px; background-size: 123px 18px; background: url(wikipedia-article.png) no-repeat left top; display: inline-block;}
+figure.wikipedia-article a { width: 100%; height: 100%; display: block;}
 figure.wikipedia-search { width: 16px; height: 10px; background-size: 16px 10px; background: url(wikipedia-search.png) no-repeat left top; display: inline-block; } 
 
-figure.sigg { width: 57px; height: 18px; background-size: 57px 18px; background: url(sigg-article.png) no-repeat left top; display: inline-block;}
-figure.sigg a { width: 100%; height: 100%; display: block;}
+figure.sigg-article { width: 57px; height: 18px; background-size: 57px 18px; background: url(sigg-article.png) no-repeat left top; display: inline-block;}
+figure.sigg-article a { width: 100%; height: 100%; display: block;}
 figure.sigg-search { width: 10px; height: 10px; background-size: 10px 10px; background: url(sigg-search.png) no-repeat left top; display: inline-block; } 
 @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 	figure.wikipedia { background-image: url(wikipedia-article@2x.png);}
 	figure.wikipedia-search { background-image: url(wikipedia-search@2x.png);}
-	figure.sigg { background-image: url(sigg-article@2x.png);}
+	figure.sigg-article { background-image: url(sigg-article@2x.png);}
 	figure.sigg-search { background-image: url(sigg-search@2x.png);}
 }
 

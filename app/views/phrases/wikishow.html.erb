@@ -1,5 +1,5 @@
 <% content_for :title do %><%= wikiphrase[0] %><% end %>
-<header><h1><%= wikiphrase[0] %> <figure class="wikipedia"><a href="<%= wikiphrase[2] %>"></a></figure></h1></header>
+<header><h1><%= wikiphrase[0] %> <figure class="wikipedia-article"><a href="<%= wikiphrase[2] %>"></a></figure></h1></header>
 <section>
 	<%= sanitize wikiphrase[1].gsub('href="/wiki', 'href="/phrases/wikipedia') %>
 </section>
