@@ -103,7 +103,7 @@ h1 a:hover, h2 a:hover, h3 a:hover { color: inherit; }
  */
 
 .search { width: 100%; text-align: center; margin: 0 auto 3.09em auto;}
-.search input[type=search] {
+.search input {
 	width: 81.4%;
 	@include box-sizing(border-box);
 	border: 0.066em solid #d1d1d1;
