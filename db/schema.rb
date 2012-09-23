@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908145910) do
+ActiveRecord::Schema.define(:version => 20120923125325) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(:version => 20120908145910) do
   add_index "authors", ["email"], :name => "index_authors_on_email", :unique => true
   add_index "authors", ["reset_password_token"], :name => "index_authors_on_reset_password_token", :unique => true
 
+  create_table "groups", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "groups", ["slug"], :name => "index_groups_on_slug", :unique => true
+
   create_table "phrases", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -42,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120908145910) do
     t.datetime "updated_at",  :null => false
     t.string   "slug"
     t.boolean  "published"
+    t.integer  "group_id"
   end
 
   add_index "phrases", ["slug"], :name => "index_phrases_on_slug", :unique => true

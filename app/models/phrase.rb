@@ -1,5 +1,6 @@
 class Phrase < ActiveRecord::Base
   has_many :revisions
+  belongs_to :group
   attr_accessible :title, :description, :published
   validates_uniqueness_of :title
   validates_presence_of :title
