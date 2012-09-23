@@ -8,7 +8,7 @@ class PhrasesController < ApplicationController
 		if !params[:search].nil?
 			p = Phrase.find_by_sql ["SELECT * FROM `phrases` WHERE MATCH (phrases.title, phrases.description) AGAINST (?) AND published = 1;", params[:search]]
 		else
-			Phrase.order(:title)
+			Phrase.where('published = 1').order(:title)
 		end
 	}
 	expose(:unpublished_phrases) {
