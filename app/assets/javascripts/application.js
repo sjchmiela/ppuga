@@ -42,6 +42,7 @@ function search() {
 }
 
 $(function() {
+	$('input, textarea').placeholder();
 	$("aside form").on("submit", function() { search(); return false; });
 	$(".toggle").on("click", function(){
 		if($(".toolbar").css("top") != '0px')
