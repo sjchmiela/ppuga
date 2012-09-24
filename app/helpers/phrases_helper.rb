@@ -8,4 +8,5 @@ module PhrasesHelper
 		end
 		return link_to (raw (cont)), url, :class => 'search-link'
 	end
+	
 end
