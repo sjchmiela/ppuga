@@ -6,7 +6,7 @@ class PhrasesController < ApplicationController
 	expose(:phrase)
 	expose(:phrases) {
 		if !params[:search].nil?
-			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE MATCH (phrases.slug, phrases.title, phrases.description) AGAINST (?) AND published = 1;", params[:search]]
+			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE MATCH (phrases.slug, phrases.title, phrases.description) AGAINST (?) AND phrases.published = 1;", params[:search]]
 		else
 			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE published = 1 ORDER BY title;"]
 			# Phrase.where('published = 1').order(:title)
