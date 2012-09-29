@@ -13,7 +13,7 @@ class PhrasesController < ApplicationController
 		end
 	}
 	expose(:unpublished_phrases) {
-		Phrase.where('published=0')
+		Phrase.where('published!=1')
 	}
 	expose(:unupdated_revisions) {
 		Revision.find_by_sql("select authors.email, revisions.*, phrases.slug as slug from revisions left outer join authors on authors.id=revisions.author_id left outer join phrases on revisions.phrase_id = phrases.id where phrases.updated_at < revisions.created_at;")
