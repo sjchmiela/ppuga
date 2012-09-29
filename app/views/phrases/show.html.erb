@@ -1,5 +1,5 @@
 <% content_for :title do %><%= phrase.title %><% end %>
-<header><h1><%= phrase.title %> <figure class="<%= if phrase.group then phrase.group.slug else "none" end %>-article"><a href="<%= phrase.group.link %>"></a></figure></h1></header>
+<header><h1><%= phrase.title %> <figure class="<%= if phrase.group then phrase.group.slug else "none" end %>-article"><% if phrase.group %><a href="<%= phrase.group.link  %>"></a><% end %></figure></h1></header>
 <section>
 	<%= sanitize rendered_description(phrase) %>
 </section>
