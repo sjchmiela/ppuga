@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %> - PPuga - przedsiębiorczy słownik</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <% [16, 24, 32, 48, 64, 120].each do |s| %>
+  	<%= favicon_link_tag image_path("ppuga_#{s}.ico"), :sizes => "#{s} #{s}", :type => nil %>
+  <% end %>
+  <% [57, 114, 72, 144].each do |s| %>
+  	<%= favicon_link_tag image_path("ppuga_#{s}.png"), :rel => 'apple-touch-icon', :sizes => "#{s}x#{s}", :type => 'image/png' %>
+  <% end %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= (params[:controller].split('/')[0] == 'pages') ? '' : params[:controller].split('/')[0] %> <%= yield :body_class %>">
+	<div class="toggle"></div>
+	<div class="toolbar">
+		<div class="wrapper">
+			<div class="half-toolbar">
+				<div class="phrase_toolbar">
+					<% if defined? phrase and !phrase.id.nil? %>
+						<h1><%= phrase.title %></h1>
+						<p><%= link_to "Wersje frazy", phrase_revisions_path(phrase), :class => "phrase_revisions" %></p>
+						<% if author_signed_in? %>
+							<p><%= link_to "Edytuj frazę", edit_phrase_path(phrase), :class => "edit_phrase" %></p>
+							<p><%= link_to "Usuń frazę", phrase, :confirm => "Ale na pewno?", :method => :delete, :class => "destroy_phrase" %></p>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+			<div class="half-toolbar">
+				<div class="author">
+					<h1>Logowanie</h1>
+					<% if author_signed_in? %>
+						<p>Witaj, <%= link_to current_author.email, edit_author_registration_path(current_author) %>!</p><p><%= link_to "Dodaj frazę", new_phrase_path, :class => "add_phrase" %></p><p><%= link_to "☛ Wyloguj się!", destroy_author_session_path, :method => :delete %></p>
+					<% else %>
+						<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+							<%= f.email_field :email, :placeholder => "Adres e-mail" %><%= f.password_field :password, :placeholder => "Hasło" %><% if devise_mapping.rememberable? -%><%= f.hidden_field :remember_me, :value => "1" %><% end -%> <%= f.submit "Loguj!" %><%= link_to "Nie mam konta. ☹", new_author_registration_path %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header>
+		<div class="wrapper">
+			<h1><a href="/">PPuga</a></h1>
+			<% if notice or alert %>
+				<div class="alerts">
+					<div class="wrapper">
+						<% if notice %><p class="notice"><%= notice %></p><% end %>
+						<% if alert %><p class="alert"><%= alert %></p><% end %>
+					</div>
+				</div>
+			<% end %>
+			<div class="search">
+				<%= form_tag search_phrase_path, :method => :get do %>
+					<%= search_field_tag :search, params[:search], :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
+				<% end %>
+			</div>
+		</div>
+	</header>
+	<div class="wrapper with_sidebar">
+		<aside>
+			<div class="search">
+				<%= form_tag search_phrase_path, :method => :get do %>
+					<%= search_field_tag :search, params[:search],:autocomplete => :off, :placeholder => "Szukaj..." %><%= submit_tag "Szukaj" %>
+				<% end %>
+			</div>
+			<div class="search-results">
+				
+			</div>
+		</aside>
+		<div class="piece-of-paper">
+			<article>
+				<%= yield %>
+			</article>
+		</div>
+	</div>
+	<footer>
+		<p>Popełnione przez <a href="http://rainbow-cafe.eu">Rainbow Cafe</a></p>
+                <p>Tekst udostępniany na licencji <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.pl">Creative Commons</a>: uznanie autorstwa, na tych samych warunkach, z możliwością obowiązywania dodatkowych ograniczeń.</p>
+	</footer>
+	<script type="text/javascript" src="//use.typekit.net/moz0raj.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34521738-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+	"keyword": "<%= params[:search] %>",
+	"results": [
+		<% phrases.each do |p| %>
+			{
+			"title": "<%= p.title %>",
+			"slug": "<%= p.slug %>"
+		} <% if p != phrases.last %>,<% end %>
+		<% end %>
+	],
+	"wikipedia": [
+		<% wikiphrases.each_with_index do |(title, desc), index| %>
+			{
+			"title": "<%= title %>",
+			"href": "<%= show_phrase_from_wikipedia_path(title.gsub(' ', '_')) %>"
+		}<% if index != wikiphrases.size-1 %>,<% end %>
+		<% end %>
+	]
+}
