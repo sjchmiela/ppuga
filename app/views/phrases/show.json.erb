@@ -1,0 +1,6 @@
+{
+    "title": "<%= phrase.title %>",
+    "group": "<%= (phrase.group) ? phrase.group.slug.to_json : "" %>",
+    "group_link": "<%= (phrase.group) ? phrase.group.link.to_json : "" %>",
+    "description": <%= (sanitize rendered_description(phrase)).to_json %>
+}

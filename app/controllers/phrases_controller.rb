@@ -25,7 +25,12 @@ class PhrasesController < ApplicationController
 		Wikipedia.show(params[:title])
 	}
 
-	respond_to :html
+	respond_to  do |format|
+		format.html
+		format.json {
+			render :json => phrase
+		}
+	end
 	def search
 		if params[:naked] == '1'
 			render :layout => false
