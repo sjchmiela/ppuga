@@ -19,8 +19,10 @@
 						<header class="search">Wyszukiwanie</header>
 							<div id="search-results" class="scroll">
 								<div class="element search">
-									<form action=""><input id="search" type="search" name="search" placeholder="Szukaj..." />
-									<button type="submit" onClick="javascript:search()"><%= image_tag("magnifier.png") %></button></form>
+									<form action="">
+										<input id="search" type="search" name="search" placeholder="Szukaj..." autocomplete="off" />
+										<button type="submit" onClick="javascript:search()"><%= image_tag("magnifier.png") %></button>
+									</form>
 								</div>
 
 							</div>
@@ -55,9 +57,7 @@
 		</div>
 		<%= javascript_include_tag "application" %>
 		<script>
-		$().ready(function () {
-			$("form").submit(function(event) { event.preventDefault(); search();})
-		});
+
 		</script>
 	</body>
 </html>

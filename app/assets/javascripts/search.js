@@ -13,11 +13,8 @@ function search() {
 			$('#search-results').append('<a href="'+item.href+'" class="search-result element">'+item.title+'</a>')
 		});
 	});
-}/*
+}
 
-
-			$.getJSON("/phrases/akcje.json", function(json) {
-				$("article header h1").text(json.title);
-				$(".page.left > header a").html("<a href='"+json.group_link+"'>"+json.group+"</a>");
-				$("article section").html($("<div />").html(json.description).text());
-			});*/
+$().ready(function () {
+	$("form").submit(function(event) { event.preventDefault(); search();})
+});
