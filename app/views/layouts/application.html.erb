@@ -20,7 +20,7 @@
 							<div id="search-results" class="scroll">
 								<div class="element search">
 									<form action="">
-										<input id="search" type="search" name="search" placeholder="Szukaj..." autocomplete="off" />
+										<input id="search_field" type="search" name="search_field" placeholder="Szukaj..." autocomplete="off" />
 										<button type="submit" onClick="javascript:search()"><%= image_tag("magnifier.png") %></button>
 									</form>
 								</div>
@@ -44,7 +44,7 @@
 				<div class="part right">
 					<div class="border right"></div>
 					<div class="page left">
-						<header><%= yield :header_right %></header>
+						<header id="group"><%= yield :header_right %></header>
 						<article class="scroll">
 							<%= yield %>
 						</article>

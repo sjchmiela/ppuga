@@ -143,64 +143,29 @@ h2 { font-size: 1em;}
 .search-result {
 	color: inherit;
 	text-decoration: none;
-	text-indent: 14px;
+	padding-left: 14px;
 	background: url(arrow.png) no-repeat right center;
-	transition-property: text-indent;
-transition-duration: 0.25s;
-transition-timing-function: ease;
-
-/* Firefox 4 */
--moz-transition-property:text-indent;
--moz-transition-duration:0.25s;
--moz-transition-timing-function:ease;
-
-/* Safari and Chrome */
--webkit-transition-property:text-indent;
--webkit-transition-duration:0.25s;
--webkit-transition-timing-function:ease;
-
-/* Opera */
--o-transition-property:text-indent;
--o-transition-duration:0.25s;
--o-transition-timing-function:ease;
-z-index: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-right: 58px;
+	transition-property: padding-left;
+	transition-duration: 0.25s;
+	transition-timing-function: ease;
+	-moz-transition-property:padding-left;
+	-moz-transition-duration:0.25s;
+	-moz-transition-timing-function:ease;
+	-webkit-transition-property:padding-left;
+	-webkit-transition-duration:0.25s;
+	-webkit-transition-timing-function:ease;
+	-o-transition-property:padding-left;
+	-o-transition-duration:0.25s;
+	-o-transition-timing-function:ease;
+	z-index: 0;
 }
 
 .search-result:hover {
-	/*animation: arrow_move 0.5s;
--moz-animation: arrow_move 0.5s; 
--webkit-animation: arrow_move 0.5s;
--o-animation: arrow_move 0.5s; */
-text-indent: 32px;
-}
-
-@-webkit-keyframes arrow_move
-{
-0% {background-position: right center;}
-40% { background-position: 101% center;}
-80% { background-position: 99% center}
-100% {background-position: right center;}
-}
-@-moz-keyframes arrow_move
-{
-0% {background-position: right center;}
-40% { background-position: 101% center;}
-80% { background-position: 99% center}
-100% {background-position: right center;}
-}
-@-o-keyframes arrow_move
-{
-0% {background-position: right center;}
-40% { background-position: 101% center;}
-80% { background-position: 99% center}
-100% {background-position: right center;}
-}
-@keyframes arrow_move
-{
-0% {background-position: right center;}
-40% { background-position: 101% center;}
-80% { background-position: 99% center}
-100% {background-position: right center;}
+	padding-left: 32px;
 }
 
 input[type=search] {

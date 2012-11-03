@@ -1,0 +1,6 @@
+{
+    "title": "<%= wikiphrase[0] %>",
+    "group": "Wikipedia",
+    "group_link": "http://pl.wikipedia.org/",
+    "description": <%= raw (wikiphrase[1].gsub('href="/wiki', 'href="/phrases/wikipedia').to_json) %>
+}
