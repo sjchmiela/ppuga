@@ -1,12 +1,10 @@
-<% content_for :title do %>Wyszukiwanie „<%= params[:search] %>”<% end %>
-<h1>Wyniki wyszukiwania „<%= params[:search] %>”</h1>
+<% content_for :title do %>Wyszukiwanie „<%= params[:search_field] %>”<% end %>
+<% content_for :search_results do %>
 <% phrases.each do |p| %>
-	<%= search_result p.title, shorten_description(p)[0..100], p, false, p[:group_slug] %>
+	<a href="<%= p.path %>" class="search-result element" onclick="javascript:visit(event, this.href)"><%= p.title %><i class="<%= p[:group_slug] %>"><%= p[:group_name] %></i></a>
 <% end %>
 <% wikiphrases.each do |title, desc| %>
-	<%= search_result title, (desc or "")[0..100], show_phrase_from_wikipedia_path(title.gsub(' ', '_')), true %>
+	<a href="<%= show_phrase_from_wikipedia_path(title.gsub(' ', '_')) %>" class="search-result element" onclick="javascript:visit(event, this.href)"><%= title %><i class="wikipedia">Wikipedia</i></a>
 <% end %>
-<% if phrases.empty? and wikiphrases.empty? %>
-	<p>Brak wyników wyszukiwania.</p>
-	<p>Może interesuje Cię <%= link_to 'lista fraz', phrases_path %> w naszym słowniku?</p>
 <% end %>
+<% content_for :searching_for do %>: „<%= params[:search_field] %>”<% end %>

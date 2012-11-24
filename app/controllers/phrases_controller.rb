@@ -5,10 +5,10 @@ class PhrasesController < ApplicationController
 	before_filter :authenticate_admin, :only => [:unpublished, :unupdated, :publish]
 	expose(:phrase)
 	expose(:phrases) {
-		if !params[:search].nil?
-			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE MATCH (phrases.slug, phrases.title, phrases.description) AGAINST (?) AND phrases.published = 1;", params[:search]]
+		if !params[:search_field].nil?
+			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug, groups.title as group_name FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE MATCH (phrases.slug, phrases.title, phrases.description) AGAINST (?) AND phrases.published = 1;", params[:search_field]]
 		else
-			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE published = 1 ORDER BY title;"]
+			Phrase.find_by_sql ["SELECT phrases.*, groups.slug as group_slug, groups.title as group_name FROM `phrases` left outer join groups on groups.id=phrases.group_id WHERE published = 1 ORDER BY title;"]
 			# Phrase.where('published = 1').order(:title)
 		end
 	}
@@ -19,7 +19,7 @@ class PhrasesController < ApplicationController
 		Revision.find_by_sql("select authors.email, revisions.*, phrases.slug as slug from revisions left outer join authors on authors.id=revisions.author_id left outer join phrases on revisions.phrase_id = phrases.id where phrases.updated_at < revisions.created_at;")
 	}
 	expose(:wikiphrases) {
-		Wikipedia.search(params[:search])
+		Wikipedia.search(params[:search_field])
 	}
 	expose(:wikiphrase) {
 		Wikipedia.show(params[:title])

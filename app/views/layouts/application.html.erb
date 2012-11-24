@@ -16,15 +16,15 @@
 				<div class="part left">
 					<div class="border left"></div>
 					<div class="page">
-						<header class="search">Wyszukiwanie</header>
+						<header class="search">Wyszukiwanie<%= yield :searching_for %></header>
 							<div id="search-results" class="scroll">
 								<div class="element search">
-									<form action="">
+									<form action="/phrases/search" method="get">
 										<input id="search_field" type="search" name="search_field" placeholder="Szukaj..." autocomplete="off" />
 										<button type="submit" onClick="javascript:search()"><%= image_tag("magnifier.png") %></button>
 									</form>
 								</div>
-
+								<%= yield :search_results %>
 							</div>
 					</div>
 				</div>
