@@ -5,11 +5,11 @@ function search() {
 		$(".search-result").remove();
 		$.each(data.results, function(i,item)
 		{
-			$("#search-results").append('<a href="/phrases/'+item.slug+'" class="search-result element" onClick="javascript:visit(event, this.href)">'+item.title+'<i class="sigg">SIGG</i></a>')
+			$("#search-results").append('<a href="/phrases/'+item.slug+'" class="search-result element" onClick="javascript:visit(event, this.href)">'+item.title+' <i class="sigg">SIGG</i></a>')
 		});
 		$.each(data.wikipedia, function(i,item)
 		{
-			$('#search-results').append('<a href="'+item.href+'" class="search-result element" onClick="javascript:visit(event, this.href)">'+item.title+'<i class="wikipedia">Wikipedia</i></a>')
+			$('#search-results').append('<a href="'+item.href+'" class="search-result element" onClick="javascript:visit(event, this.href)">'+item.title+' <i class="wikipedia">Wikipedia</i></a>')
 		});
 	});
 }
