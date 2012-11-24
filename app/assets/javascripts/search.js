@@ -1,7 +1,7 @@
 function search() {
 	var keyword = $("#search_field").val();
 	$("header.search").text("Wyszukiwanie: „"+keyword+"”");
-	$.getJSON('/phrases/search.json?utf8=✓&search='+keyword, function(data)	{
+	$.getJSON('/phrases/search.json?utf8=✓&search_field='+keyword, function(data)	{
 		$(".search-result").remove();
 		$.each(data.results, function(i,item)
 		{
