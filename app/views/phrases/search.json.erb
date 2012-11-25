@@ -4,7 +4,9 @@
 		<% phrases.each do |p| %>
 			{
 			"title": "<%= p.title %>",
-			"slug": "<%= p.slug %>"
+			"slug": "<%= p.slug %>",
+			"group_name": "<%= p[:group_name] %>",
+			"group_slug": "<%= p[:group_slug] %>"
 		} <% if p != phrases.last %>,<% end %>
 		<% end %>
 	],
