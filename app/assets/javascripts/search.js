@@ -3,14 +3,22 @@ function search() {
 	$("header.search").text("Wyszukiwanie: „"+keyword+"”");
 	$.getJSON('/phrases/search.json?utf8=✓&search_field='+keyword, function(data)	{
 		$(".search-result").remove();
+		$(".no-results").remove();
+		var inserted = false;
 		$.each(data.results, function(i,item)
 		{
+			inserted = true;
 			$("#search-results").append('<a href="/phrases/'+item.slug+'" class="search-result element" onClick="javascript:visit(event, this.href)">'+item.title+' <i class="'+item.group_slug+'">'+item.group_name+'</i></a>')
 		});
 		$.each(data.wikipedia, function(i,item)
 		{
+			inserted = true;
 			$('#search-results').append('<a href="'+item.href+'" class="search-result element" onClick="javascript:visit(event, this.href)">'+item.title+' <i class="wikipedia">Wikipedia</i></a>')
 		});
+		if(inserted == false)
+		{
+			$('#search-results').append('<div class="element no-results">Brak wyników.</div>')
+		}
 	});
 }
 
