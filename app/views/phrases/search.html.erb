@@ -1,7 +1,7 @@
 <% content_for :title do %>Wyszukiwanie „<%= params[:search_field] %>”<% end %>
 <% content_for :search_results do %>
 <% phrases.each do |p| %>
-	<a href="<%= p.path %>" class="search-result element" onclick="javascript:visit(event, this.href)"><%= p.title %> <i class="<%= p[:group_slug] %>"><%= p[:group_name] %></i></a>
+	<a href="/phrases/<%= p.slug %>" class="search-result element" onclick="javascript:visit(event, this.href)"><%= p.title %> <i class="<%= p[:group_slug] %>"><%= p[:group_name] %></i></a>
 <% end %>
 <% wikiphrases.each do |title, desc| %>
 	<a href="<%= show_phrase_from_wikipedia_path(title.gsub(' ', '_')) %>" class="search-result element" onclick="javascript:visit(event, this.href)"><%= title %> <i class="wikipedia">Wikipedia</i></a>
