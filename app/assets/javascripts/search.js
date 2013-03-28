@@ -1,6 +1,7 @@
 function search() {
 	var keyword = $("#search_field").val();
 	$("header.search").text("Wyszukiwanie: „"+keyword+"”");
+	_gaq.push(['_trackEvent', 'Phrases', 'Search', keyword]);
 	$.getJSON('/phrases/search.json?utf8=✓&search_field='+keyword, function(data)	{
 		$(".search-result").remove();
 		$(".no-results").remove();
@@ -29,6 +30,8 @@ function visit(event, url) {
 		history.pushState(data.title, document.title, url);
 		$("#group").html('<a href="'+data.group_link+'">'+data.group+'</a>');
 		$("article.scroll").html('<header><h1>'+data.title+'</h1></header><section>'+data.description+'</section>');
+		_gaq.push(['_trackEvent', 'Phrases', 'Open', data.title]);
+
 	}));
 }
 
